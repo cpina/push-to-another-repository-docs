@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: install requirements
-        run: apt-get install python3-sphinx python3-sphinx-rtd-theme
+        run: sudo apt-get install python3-sphinx python3-sphinx-rtd-theme
