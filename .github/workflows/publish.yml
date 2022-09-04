@@ -17,3 +17,11 @@ jobs:
       - run: pip install -r requirements.txt
       - name: build documentation
         run: make html
+      - uses: cpina/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        with:
+          source-directory: '_build'
+          destination-github-username: 'cpina'
+          destination-repository-name: 'push-to-another-repository-docs'
+          target-branch: gh-pages
