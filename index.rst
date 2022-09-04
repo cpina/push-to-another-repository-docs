@@ -6,6 +6,8 @@
 Welcome to github-action-push-to-another-repository's documentation!
 ====================================================================
 
+This action...
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
