@@ -24,5 +24,6 @@ jobs:
           source-directory: '_build/html'
           destination-github-username: 'cpina'
           destination-repository-name: 'push-to-another-repository-docs'
+          user-email: carles@pina.cat
           target-branch: gh-pages
           target-directory: docs
