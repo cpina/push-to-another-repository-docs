@@ -25,3 +25,4 @@ jobs:
           destination-github-username: 'cpina'
           destination-repository-name: 'push-to-another-repository-docs'
           target-branch: gh-pages
+          target-directory: docs
