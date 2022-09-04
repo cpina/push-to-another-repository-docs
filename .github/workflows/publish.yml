@@ -1,0 +1,15 @@
+name: build documentation and publish
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: install requirements
+        run: python3 -m venv venv && pyhton -m pip install requirements.txt
