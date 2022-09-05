@@ -45,6 +45,8 @@
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Configuration</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ssh-deploy-key-vs-api-token-github"><code class="docutils literal notranslate"><span class="pre">SSH_DEPLOY_KEY</span></code> Vs. <code class="docutils literal notranslate"><span class="pre">API_TOKEN_GITHUB</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-using-ssh-deploy-keys">Setup using SSH deploy keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-using-personal-access-token">Setup using Personal Access Token</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
@@ -88,6 +90,14 @@
 </ul>
 <p>Using the Personal Access Token, and if someone with write access to your repository or to this Action, could technically add code to leak the Token. Thus, <strong>it is recommended to use the SSH deploy key method to minimise the impact</strong> if this were to happen (the Personal Access Token would give access to more GitHub resources, not only the destination repository).</p>
 <p>Initially, this Action only used the Personal Access Token method and it still supports both methods to keep backwards compatibility.</p>
+</section>
+<section id="setup-using-ssh-deploy-keys">
+<h2>Setup using SSH deploy keys<a class="headerlink" href="#setup-using-ssh-deploy-keys" title="Permalink to this heading"></a></h2>
+<p>Refer to the section <a class="reference internal" href="setup-using-ssh-deploy-keys.html#setup-ssh-deploy-keys"><span class="std std-ref">Using SSH deploy keys</span></a>.</p>
+</section>
+<section id="setup-using-personal-access-token">
+<h2>Setup using Personal Access Token<a class="headerlink" href="#setup-using-personal-access-token" title="Permalink to this heading"></a></h2>
+<p>Refer to the section <a class="reference internal" href="setup-using-personal-access-token.html#setup-personal-access-token"><span class="std std-ref">Using GitHub Personal Access Token</span></a>.</p>
 </section>
 </section>
 
