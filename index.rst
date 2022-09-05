@@ -8,7 +8,7 @@ A couple of examples of this could be:
 - Specifying a directory in a `source` repository to be pushed to a `destination` repository
 - Generating some files using another GitHub Action and pushing them into another `destination` repository (e.g. generate PDFs from MarkDown and push the PDFs across to the `destination` repository)
 
-The GitHub Action code is shorter than the documentation. It needs some setup and initial configuration which is covered in detail here.
+The GitHub Action code is shorter than the documentation. It needs some setup and initial configuration which is covered in detail but hopefully it will not take more than a few minutes.
 
 .. toctree::
   :caption: Table of contents
