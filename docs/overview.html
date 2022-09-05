@@ -41,7 +41,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Table of contents</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
@@ -84,6 +87,16 @@
 <p class="admonition-title">Warning</p>
 <p>Please bear in mind that the files in the specified directory of the target repository are deleted unless the option <cite>target-directory</cite> is used (in this case, only the files for this directory are deleted).</p>
 </div>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Authentication: using SSH deploy keys or GitHub Personal Access Token (see <a class="reference internal" href="setup.html#setup"><span class="std std-ref">Setup</span></a>.)</p></li>
+<li><p>Support github.com server and also GitHub for Enterprise (via configuration <span class="xref std std-ref">github-server</span> &lt;github-server-configuration&gt;.)</p></li>
+<li><p>Specify in the configuration the source directory and destination directory and repository</p></li>
+<li><p>Change the commit message</p></li>
+<li><p>Documentation include example how to filter files or directories</p></li>
+</ul>
+</section>
 </section>
 
 

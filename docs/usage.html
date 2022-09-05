@@ -43,15 +43,16 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#source-directory-argument"><code class="docutils literal notranslate"><span class="pre">source-directory</span></code> (argument)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#destination-github-username-argument"><code class="docutils literal notranslate"><span class="pre">destination-github-username</span></code> (argument)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#destination-repository-name-argument"><code class="docutils literal notranslate"><span class="pre">destination-repository-name</span></code> (argument)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#user-email-argument-optional"><code class="docutils literal notranslate"><span class="pre">user-email</span></code> (argument) [optional]</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#user-name-argument-optional"><code class="docutils literal notranslate"><span class="pre">user-name</span></code> (argument) [optional]</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#destination-repository-username-argument-optional"><code class="docutils literal notranslate"><span class="pre">destination-repository-username</span></code> (argument) [optional]</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#target-branch-argument-optional"><code class="docutils literal notranslate"><span class="pre">target-branch</span></code> (argument) [optional]</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#commit-message-argument-optional"><code class="docutils literal notranslate"><span class="pre">commit-message</span></code> (argument) [optional]</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#target-directory-argument-optional"><code class="docutils literal notranslate"><span class="pre">target-directory</span></code> (argument) [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-directory"><code class="docutils literal notranslate"><span class="pre">source-directory</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#destination-github-username"><code class="docutils literal notranslate"><span class="pre">destination-github-username</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#destination-repository-name"><code class="docutils literal notranslate"><span class="pre">destination-repository-name</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-email-optional"><code class="docutils literal notranslate"><span class="pre">user-email</span></code> [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-name-optional"><code class="docutils literal notranslate"><span class="pre">user-name</span></code> [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#destination-repository-username-optional"><code class="docutils literal notranslate"><span class="pre">destination-repository-username</span></code> [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#target-branch-optional"><code class="docutils literal notranslate"><span class="pre">target-branch</span></code> [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commit-message-optional"><code class="docutils literal notranslate"><span class="pre">commit-message</span></code> [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#target-directory-optional"><code class="docutils literal notranslate"><span class="pre">target-directory</span></code> [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#github-server-optional"><code class="docutils literal notranslate"><span class="pre">github-server</span></code> [optional]</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
@@ -84,53 +85,58 @@
            <div itemprop="articleBody">
              
   <section id="configuration">
-<span id="usage"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h1>
 <p>The variables below set up the behaviour of the GitHub Action.</p>
-<section id="source-directory-argument">
-<h2><code class="docutils literal notranslate"><span class="pre">source-directory</span></code> (argument)<a class="headerlink" href="#source-directory-argument" title="Permalink to this heading"></a></h2>
+<p>Also see the :ref`example &lt;setup_example&gt;`.</p>
+<section id="source-directory">
+<h2><code class="docutils literal notranslate"><span class="pre">source-directory</span></code><a class="headerlink" href="#source-directory" title="Permalink to this heading"></a></h2>
 <p>Directory that the GitHub Action will push files from.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It can be <code class="docutils literal notranslate"><span class="pre">.</span></code> to push all the repository, but read the FAQ.</p>
 </div>
 </section>
-<section id="destination-github-username-argument">
-<h2><code class="docutils literal notranslate"><span class="pre">destination-github-username</span></code> (argument)<a class="headerlink" href="#destination-github-username-argument" title="Permalink to this heading"></a></h2>
+<section id="destination-github-username">
+<h2><code class="docutils literal notranslate"><span class="pre">destination-github-username</span></code><a class="headerlink" href="#destination-github-username" title="Permalink to this heading"></a></h2>
 <p>Username/Organization of the GitHub repository that will be used for the <code class="docutils literal notranslate"><span class="pre">destination</span></code> repository. To output to a repository such as <a class="reference external" href="https://github.com/cpina/push-to-another-repository-output">https://github.com/cpina/push-to-another-repository-output</a> this variable would be <code class="docutils literal notranslate"><span class="pre">cpina</span></code> .</p>
 </section>
-<section id="destination-repository-name-argument">
-<h2><code class="docutils literal notranslate"><span class="pre">destination-repository-name</span></code> (argument)<a class="headerlink" href="#destination-repository-name-argument" title="Permalink to this heading"></a></h2>
+<section id="destination-repository-name">
+<h2><code class="docutils literal notranslate"><span class="pre">destination-repository-name</span></code><a class="headerlink" href="#destination-repository-name" title="Permalink to this heading"></a></h2>
 <p>Name of the <code class="docutils literal notranslate"><span class="pre">destination</span></code> repository. To output to a repository such as <a class="reference external" href="https://github.com/cpina/push-to-another-repository-output">https://github.com/cpina/push-to-another-repository-output</a> this variable would be <code class="docutils literal notranslate"><span class="pre">push-to-another-repository-output</span></code> .</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The GitHub Action deletes all the files and directories in the <strong>destination directory</strong>.</p>
 </div>
 </section>
-<section id="user-email-argument-optional">
-<h2><code class="docutils literal notranslate"><span class="pre">user-email</span></code> (argument) [optional]<a class="headerlink" href="#user-email-argument-optional" title="Permalink to this heading"></a></h2>
+<section id="user-email-optional">
+<h2><code class="docutils literal notranslate"><span class="pre">user-email</span></code> [optional]<a class="headerlink" href="#user-email-optional" title="Permalink to this heading"></a></h2>
 <p>The email that will be used for the commit to the <code class="docutils literal notranslate"><span class="pre">destination-repository-name</span></code>. Used for the “Author” of the generated commit.</p>
 <p>If it is not specified the commit will not have the author’s email in the commit.</p>
 </section>
-<section id="user-name-argument-optional">
-<h2><code class="docutils literal notranslate"><span class="pre">user-name</span></code> (argument) [optional]<a class="headerlink" href="#user-name-argument-optional" title="Permalink to this heading"></a></h2>
+<section id="user-name-optional">
+<h2><code class="docutils literal notranslate"><span class="pre">user-name</span></code> [optional]<a class="headerlink" href="#user-name-optional" title="Permalink to this heading"></a></h2>
 <p>The name that will be used for the commit to the destination-repository-name. If not specified, the <code class="docutils literal notranslate"><span class="pre">destination-github-username</span></code> will be used instead.</p>
 </section>
-<section id="destination-repository-username-argument-optional">
-<h2><code class="docutils literal notranslate"><span class="pre">destination-repository-username</span></code> (argument) [optional]<a class="headerlink" href="#destination-repository-username-argument-optional" title="Permalink to this heading"></a></h2>
+<section id="destination-repository-username-optional">
+<h2><code class="docutils literal notranslate"><span class="pre">destination-repository-username</span></code> [optional]<a class="headerlink" href="#destination-repository-username-optional" title="Permalink to this heading"></a></h2>
 <p>The Username/Organization for the destination repository, if different from <code class="docutils literal notranslate"><span class="pre">destination-github-username</span></code>. For the repository <a class="reference external" href="https://github.com/cpina/push-to-another-repository-output">https://github.com/cpina/push-to-another-repository-output</a> this variable would be <code class="docutils literal notranslate"><span class="pre">cpina</span></code> .</p>
 </section>
-<section id="target-branch-argument-optional">
-<h2><code class="docutils literal notranslate"><span class="pre">target-branch</span></code> (argument) [optional]<a class="headerlink" href="#target-branch-argument-optional" title="Permalink to this heading"></a></h2>
+<section id="target-branch-optional">
+<h2><code class="docutils literal notranslate"><span class="pre">target-branch</span></code> [optional]<a class="headerlink" href="#target-branch-optional" title="Permalink to this heading"></a></h2>
 <p>The branch name for the destination repository. It defaults to <code class="docutils literal notranslate"><span class="pre">main</span></code> .</p>
 </section>
-<section id="commit-message-argument-optional">
-<h2><code class="docutils literal notranslate"><span class="pre">commit-message</span></code> (argument) [optional]<a class="headerlink" href="#commit-message-argument-optional" title="Permalink to this heading"></a></h2>
+<section id="commit-message-optional">
+<h2><code class="docutils literal notranslate"><span class="pre">commit-message</span></code> [optional]<a class="headerlink" href="#commit-message-optional" title="Permalink to this heading"></a></h2>
 <p>The commit message to be used in the output repository. Optional and defaults to <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">from</span> <span class="pre">ORIGIN_COMMIT</span></code>.</p>
 <p>The string <code class="docutils literal notranslate"><span class="pre">ORIGIN_COMMIT</span></code> is replaced by <code class="docutils literal notranslate"><span class="pre">$ORIGIN_REPOSITORY_URL&#64;commit</span></code>.</p>
 </section>
-<section id="target-directory-argument-optional">
-<h2><code class="docutils literal notranslate"><span class="pre">target-directory</span></code> (argument) [optional]<a class="headerlink" href="#target-directory-argument-optional" title="Permalink to this heading"></a></h2>
+<section id="target-directory-optional">
+<h2><code class="docutils literal notranslate"><span class="pre">target-directory</span></code> [optional]<a class="headerlink" href="#target-directory-optional" title="Permalink to this heading"></a></h2>
 <p>The directory to wipe and replace in the target repository. Defaults to wiping the entire destination repository.</p>
+</section>
+<section id="github-server-optional">
+<h2><code class="docutils literal notranslate"><span class="pre">github-server</span></code> [optional]<a class="headerlink" href="#github-server-optional" title="Permalink to this heading"></a></h2>
+<p>Defaults to github.com. Needs to be different if using GitHub enterprise.</p>
 </section>
 </section>
 

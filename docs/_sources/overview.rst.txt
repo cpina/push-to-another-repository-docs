@@ -13,6 +13,16 @@ Once the setup using one of the methods above has been done, in the examples, th
 
 .. warning:: Please bear in mind that the files in the specified directory of the target repository are deleted unless the option `target-directory` is used (in this case, only the files for this directory are deleted).
 
+--------
+Features
+--------
+
+- Authentication: using SSH deploy keys or GitHub Personal Access Token (see :ref:`Setup <setup>`.)
+- Support github.com server and also GitHub for Enterprise (via configuration :ref:`github-server` <github-server-configuration>.)
+- Specify in the configuration the source directory and destination directory and repository
+- Change the commit message
+- Documentation include example how to filter files or directories
+
 .. _push-to-another-repository-deploy-keys-example: https://github.com/cpina/push-to-another-repository-deploy-keys-example
 .. _ci.yml (ssh keys): https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/.github/workflows/ci.yml#L21
 .. _push-to-another-repository-example: https://github.com/cpina/push-to-another-repository-example
