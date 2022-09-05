@@ -32,3 +32,9 @@ Setup using Personal Access Token
 ---------------------------------
 
 Refer to the section :ref:`Using GitHub Personal Access Token <setup_personal_access_token>`.
+
+-------------
+Setup example
+-------------
+
+Refer to the section :ref:`Setup example <setup_example>`.

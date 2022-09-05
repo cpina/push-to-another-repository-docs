@@ -41,7 +41,7 @@
               <p class="caption" role="heading"><span class="caption-text">Table of contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
@@ -73,12 +73,13 @@
              
   <section id="welcome-to-github-action-push-to-another-repository-s-documentation">
 <h1>Welcome to github-action-push-to-another-repository’s documentation!<a class="headerlink" href="#welcome-to-github-action-push-to-another-repository-s-documentation" title="Permalink to this heading"></a></h1>
-<p>This GitHub Action will help to push files from one GitHub repository to another. For example, on a git push in a <cite>source</cite> repository, files can be pushed into a <cite>destination</cite> repository.</p>
+<p>This GitHub Action (<a class="reference external" href="https://github.com/cpina/push-to-another-repository-deploy-keys-example">github-action-push-to-another-repository</a>) will help to push files from one GitHub repository to another. For example, on a git push in a <cite>source</cite> repository, files can be pushed into a <cite>destination</cite> repository.</p>
 <p>A couple of examples of this could be:</p>
 <ul class="simple">
 <li><p>Specifying a directory in a <cite>source</cite> repository to be pushed to a <cite>destination</cite> repository</p></li>
 <li><p>Generating some files using another GitHub Action and pushing them into another <cite>destination</cite> repository (e.g. generate PDFs from MarkDown and push the PDFs across to the <cite>destination</cite> repository)</p></li>
 </ul>
+<p>The GitHub Action code is shorter than the documentation. It needs some setup and initial configuration which is covered in detail here.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Table of contents</span></p>
 <ul>
@@ -86,23 +87,24 @@
 <li class="toctree-l2"><a class="reference internal" href="overview.html#features">Features</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#source-directory"><code class="docutils literal notranslate"><span class="pre">source-directory</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#destination-github-username"><code class="docutils literal notranslate"><span class="pre">destination-github-username</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#destination-repository-name"><code class="docutils literal notranslate"><span class="pre">destination-repository-name</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#user-email-optional"><code class="docutils literal notranslate"><span class="pre">user-email</span></code> [optional]</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#user-name-optional"><code class="docutils literal notranslate"><span class="pre">user-name</span></code> [optional]</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#destination-repository-username-optional"><code class="docutils literal notranslate"><span class="pre">destination-repository-username</span></code> [optional]</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#target-branch-optional"><code class="docutils literal notranslate"><span class="pre">target-branch</span></code> [optional]</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#commit-message-optional"><code class="docutils literal notranslate"><span class="pre">commit-message</span></code> [optional]</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#target-directory-optional"><code class="docutils literal notranslate"><span class="pre">target-directory</span></code> [optional]</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#github-server-optional"><code class="docutils literal notranslate"><span class="pre">github-server</span></code> [optional]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#source-directory"><code class="docutils literal notranslate"><span class="pre">source-directory</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#destination-github-username"><code class="docutils literal notranslate"><span class="pre">destination-github-username</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#destination-repository-name"><code class="docutils literal notranslate"><span class="pre">destination-repository-name</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#user-email-optional"><code class="docutils literal notranslate"><span class="pre">user-email</span></code> [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#user-name-optional"><code class="docutils literal notranslate"><span class="pre">user-name</span></code> [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#destination-repository-username-optional"><code class="docutils literal notranslate"><span class="pre">destination-repository-username</span></code> [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#target-branch-optional"><code class="docutils literal notranslate"><span class="pre">target-branch</span></code> [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#commit-message-optional"><code class="docutils literal notranslate"><span class="pre">commit-message</span></code> [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#target-directory-optional"><code class="docutils literal notranslate"><span class="pre">target-directory</span></code> [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#github-server-optional"><code class="docutils literal notranslate"><span class="pre">github-server</span></code> [optional]</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#ssh-deploy-key-vs-api-token-github"><code class="docutils literal notranslate"><span class="pre">SSH_DEPLOY_KEY</span></code> Vs. <code class="docutils literal notranslate"><span class="pre">API_TOKEN_GITHUB</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#setup-using-ssh-deploy-keys">Setup using SSH deploy keys</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#setup-using-personal-access-token">Setup using Personal Access Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#setup-example">Setup example</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul>
