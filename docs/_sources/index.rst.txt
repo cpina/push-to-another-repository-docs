@@ -23,3 +23,4 @@ Features:
   usage.rst
   setup.rst
   troubleshooting.rst
+  faq.rst
