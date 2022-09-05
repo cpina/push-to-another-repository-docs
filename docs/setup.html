@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup &mdash; github-action-push-to-another-repository  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Configuration" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> github-action-push-to-another-repository
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ssh-deploy-key-vs-api-token-github"><code class="docutils literal notranslate"><span class="pre">SSH_DEPLOY_KEY</span></code> Vs. <code class="docutils literal notranslate"><span class="pre">API_TOKEN_GITHUB</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-using-ssh-deploy-key">Setup using SSH deploy key</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generate-the-key-files">Generate the key files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-public-key-in-the-destination-repository">Add public key in the destination repository</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">github-action-push-to-another-repository</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/setup.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this heading"></a></h1>
+<p>Before using the GitHub Action, either the <strong>SSH Keys (recommended)</strong> or the <strong>Personal Access Token</strong> need to be set up as described below.</p>
+<section id="ssh-deploy-key-vs-api-token-github">
+<h2><code class="docutils literal notranslate"><span class="pre">SSH_DEPLOY_KEY</span></code> Vs. <code class="docutils literal notranslate"><span class="pre">API_TOKEN_GITHUB</span></code><a class="headerlink" href="#ssh-deploy-key-vs-api-token-github" title="Permalink to this heading"></a></h2>
+<p>The Action, entirely executed in your GitHub continuous integration environment, needs to be able to push to the destination repository.</p>
+<p>There are two options to do this:</p>
+<ul class="simple">
+<li><p>Create an SSH deploy key. This key is restricted to the destination repository only (recommended)</p></li>
+<li><p>Create a GitHub Personal Access Token. The Token has access to all your repositories</p></li>
+</ul>
+<p>Someone with write access to your repository or this Action, could technically add code to leak the Token. Thus, <strong>it is recommended to use the SSH deploy key method to minimise the impact</strong> if this were to happen.</p>
+<p>Initially, this Action only used the Personal Access Token method and it still supports both methods to keep backwards compatibility.</p>
+<section id="setup-using-ssh-deploy-key">
+<h3>Setup using SSH deploy key<a class="headerlink" href="#setup-using-ssh-deploy-key" title="Permalink to this heading"></a></h3>
+<p>Recommended, but the setup has a few more steps compared with the Personal Access Token option.</p>
+<section id="generate-the-key-files">
+<h4>Generate the key files<a class="headerlink" href="#generate-the-key-files" title="Permalink to this heading"></a></h4>
+<blockquote>
+<div><ol class="arabic">
+<li><p>In your computer terminal, generate an SSH key using, in your terminal:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</span>
+</pre></div>
+</div>
+<p>(the type of key <code class="docutils literal notranslate"><span class="pre">ed25519</span></code> is recommended by the <a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key">GitHub documentation</a>.)</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code> will ask for a file path: <cite>Enter file in which to save the key</cite>: please write a new file name. I suggest the default directory and as a filename: <code class="docutils literal notranslate"><span class="pre">id_github_{name_of_your_destination_repository}</span></code> to avoid overwriting a previous file. If you will be using this Action for multiple repositories, you might want to generate different keys for each one. For the repository <a class="reference external" href="https://github.com/cpina/push-to-another-repository-example/">https://github.com/cpina/push-to-another-repository-example/</a>, <code class="docutils literal notranslate"><span class="pre">id_github_push-to-another-repository-example</span></code> could be used.</p></li>
+<li><p>Leave the passphrase empty (otherwise the GitHub Action cannot use it)</p></li>
+</ol>
+</div></blockquote>
+<p>The steps above will have created two files: the private key (in the file <code class="docutils literal notranslate"><span class="pre">id_github_{name_of_your_destination_repository}</span></code>) and the public key (<code class="docutils literal notranslate"><span class="pre">id_github_{name_of_your_destination_repository}.pub</span></code>).</p>
+<p>Full example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ssh-keygen -t ed25519 -C carles@pina.cat
+<span class="go">Generating public/private ed25519 key pair.</span>
+<span class="go">Enter file in which to save the key (/home/carles/.ssh/id_ed25519): /home/carles/.ssh/id_ed255^C</span>
+<span class="gp">$ </span>ssh-keygen -t ed25519 -C carles@pina.cat
+<span class="go">Generating public/private ed25519 key pair.</span>
+<span class="go">Enter file in which to save the key (/home/carles/.ssh/id_ed25519): /home/carles/.ssh/id_github_push-to-another-repository</span>
+<span class="go">Enter passphrase (empty for no passphrase):</span>
+<span class="go">Enter same passphrase again:</span>
+<span class="go">Your identification has been saved in /home/carles/.ssh/id_github_push-to-another-repository</span>
+<span class="go">Your public key has been saved in /home/carles/.ssh/id_github_push-to-another-repository.pub</span>
+<span class="go">The key fingerprint is:</span>
+<span class="go">SHA256:qkWM49d0ecTh+d9/CoRIv/N05oYGYvu+wOreQH9PoQ4 carles@pina.cat</span>
+<span class="go">The key&#39;s randomart image is:</span>
+<span class="go">+--[ED25519 256]--+</span>
+<span class="go">|            .    |</span>
+<span class="go">|           o o   |</span>
+<span class="go">|        .   =    |</span>
+<span class="go">|     o . o + .   |</span>
+<span class="go">|    o + S = + .  |</span>
+<span class="go">|   . + *o..= . ..|</span>
+<span class="go">|    . =.Eo=.+.o o|</span>
+<span class="go">|     + +.= *o=. o|</span>
+<span class="go">|    .o+ .o=oo.o.o|</span>
+<span class="go">+----[SHA256]-----+</span>
+<span class="gp">$</span>
+</pre></div>
+</div>
+<p>The public and private SSH files:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ls -l /home/carles/.ssh/id_github_push-to-another-repository*
+<span class="go">-rw------- 1 carles carles 411 Jul 28 09:40 /home/carles/.ssh/id_github_push-to-another-repository</span>
+<span class="go">-rw-r--r-- 1 carles carles  97 Jul 28 09:40 /home/carles/.ssh/id_github_push-to-another-repository.pub</span>
+<span class="gp">$</span>
+</pre></div>
+</div>
+</section>
+<section id="add-public-key-in-the-destination-repository">
+<h4>Add public key in the destination repository<a class="headerlink" href="#add-public-key-in-the-destination-repository" title="Permalink to this heading"></a></h4>
+<p>In this section, we will add the generated public key to the destination repository. This allows the Action to push there.</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Go to the GitHub page of the <strong>destination</strong> repository (e.g. <a class="reference external" href="https://github.com/cpina/push-to-another-repository-output">https://github.com/cpina/push-to-another-repository-output</a>)</p></li>
+<li><p>Click on “Settings” (settings for the repository, not the account settings)</p>
+<img alt="_images/ssh-key-10.png" class="with-border" src="_images/ssh-key-10.png" />
+</li>
+<li><p>On the left-hand side pane click on “Deploy keys”</p>
+<img alt="_images/ssh-key-20.png" class="with-border" src="_images/ssh-key-20.png" />
+</li>
+<li><p>Click on “Add deploy key”</p></li>
+</ol>
+<blockquote>
+<div><img alt="_images/ssh-key-30.png" class="with-border" src="_images/ssh-key-30.png" />
+</div></blockquote>
+<ol class="arabic">
+<li><p>Title: “GitHub Action push to another repository”</p></li>
+<li><p>Key: paste the contents of the file with the public key. This was generated in the “Generate the key files” step and the name is “id_github_name_of_your_repository.pub”</p></li>
+<li><p><strong>Enable</strong> “Allow write access”</p>
+<img alt="_images/ssh-key-40.png" class="with-border" src="_images/ssh-key-40.png" />
+</li>
+</ol>
+</div></blockquote>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage.html" class="btn btn-neutral float-left" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Carles Pina Estany.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
