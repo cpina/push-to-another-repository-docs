@@ -6,7 +6,7 @@ Configuration
 
 The variables below set up the behaviour of the GitHub Action.
 
-Also see the :ref`example <setup_example>`.
+See the :ref:`example <setup_example>` for more context.
 
 --------------------
 ``source-directory``
@@ -73,6 +73,8 @@ The string ``ORIGIN_COMMIT`` is replaced by ``$ORIGIN_REPOSITORY_URL@commit``.
 
 The directory to wipe and replace in the target repository. Defaults to wiping the entire destination repository.
 
+
+.. _github-server:
 
 ----------------------------
 ``github-server`` [optional]
