@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting &mdash; github-action-push-to-another-repository  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Setup" href="setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> github-action-push-to-another-repository
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cannot-push-to-the-destination-repository">Cannot push to the destination repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#test-connection-to-github-using-the-key-pair">Test connection to GitHub using the key pair</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verify-that-the-key-is-in-the-correct-repository">Verify that the key is in the correct repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verify-the-permission-of-the-key">Verify the Permission of the key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-the-personal-access-token">Test the Personal Access Token</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#error-url-using-bad-illegal-format-or-missing-url">Error: URL using bad/illegal format or missing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-remote-repository-not-found">Error: remote: Repository not found</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">github-action-push-to-another-repository</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Troubleshooting</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/troubleshooting.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h1>
+<section id="cannot-push-to-the-destination-repository">
+<h2>Cannot push to the destination repository<a class="headerlink" href="#cannot-push-to-the-destination-repository" title="Permalink to this heading"></a></h2>
+<p>This is the most common problem. Carefully read the logs on the GitHub Action pages of the source repositories. The action tries to write the errors and gives possible solutions / hints. To solve this problem, the first suggestion is to follow the steps above to redo the setup following the steps above. If this still does not work, the following problems have occurred in the past, so they may be useful points to start solving the problem:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>User was logged in to GitHub with an account that did not have permission to push into the destination repository. The action could not push (permission denied).</p></li>
+<li><p>Expired Token.</p></li>
+<li><p>SSH generated key pair (public/private) was set in the wrong way.</p></li>
+<li><p>Wrong copy-paste including spaces or other characters that did not belong to the key / token</p></li>
+</ol>
+</div></blockquote>
+<section id="test-connection-to-github-using-the-key-pair">
+<h3>Test connection to GitHub using the key pair<a class="headerlink" href="#test-connection-to-github-using-the-key-pair" title="Permalink to this heading"></a></h3>
+<p>The public key should have been added into the repository (as an SSH deploy key following the documentation above).</p>
+<p>Then, do:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ssh -o <span class="nv">IdentitiesOnly</span><span class="o">=</span>yes -i .ssh/id_push-to-another-repository-output_ed25519 git@github.com
+</pre></div>
+</div>
+<p>Instead of <code class="docutils literal notranslate"><span class="pre">.ssh/id_push-to-another-repository-output_ed25519</span></code>, use the file as you created it. This is the <strong>private</strong> key (it does not end with <cite>.pub</cite>). If you used the correct private key for the correctly uploaded public key, it will print something along the lines of:</p>
+<p>If you see:
+.. code-block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span> <span class="n">Permission</span> <span class="n">denied</span> <span class="p">(</span><span class="n">publickey</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>the public key for this private key is not available on GitHub.</p>
+</section>
+<section id="verify-that-the-key-is-in-the-correct-repository">
+<h3>Verify that the key is in the correct repository<a class="headerlink" href="#verify-that-the-key-is-in-the-correct-repository" title="Permalink to this heading"></a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ssh-keygen -lf .ssh/id_push-to-another-repository-output_ed25519
+</pre></div>
+</div>
+<p>The output will be something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">256</span> <span class="n">SHA256</span><span class="p">:</span><span class="n">SOME_STRING_OF_CHARACTERS</span> <span class="n">carles</span><span class="nd">@pina</span><span class="o">.</span><span class="n">cat</span> <span class="p">(</span><span class="n">ED25519</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This should match what you see in the deploy key of the destination repository. If it does not match, the deploy key is not properly set (perhaps different public/private keys were used, for example).</p>
+</section>
+<section id="verify-the-permission-of-the-key">
+<h3>Verify the Permission of the key<a class="headerlink" href="#verify-the-permission-of-the-key" title="Permalink to this heading"></a></h3>
+<p>Visualise the key in the destination repository, and it should say:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Read</span><span class="o">/</span><span class="n">Write</span>
+</pre></div>
+</div>
+</section>
+<section id="test-the-personal-access-token">
+<h3>Test the Personal Access Token<a class="headerlink" href="#test-the-personal-access-token" title="Permalink to this heading"></a></h3>
+<p>If the Personal Access Token method was used for the setup, check it has the correct permissions to push to the destination repository and has not expired.</p>
+<p>In your terminal do:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://YOUR_USERNAME:YOUR_ACCESS_TOKEN@github.com/SOMETHING/REPO
+<span class="gp"># </span>YOUR_ACCESS_TOKEN probably starts with ghp_
+<span class="gp">$ </span><span class="nb">cd</span> REPO
+<span class="gp">$ </span>git checkout -b <span class="nb">test</span>
+<span class="gp">$ </span>git push origin <span class="nb">test</span>
+</pre></div>
+</div>
+<p>For example, if the token did not have permission to write (because <cite>repo</cite> was not enabled for this token), you might see the following:</p>
+</section>
+</section>
+<section id="error-url-using-bad-illegal-format-or-missing-url">
+<h2>Error: URL using bad/illegal format or missing URL<a class="headerlink" href="#error-url-using-bad-illegal-format-or-missing-url" title="Permalink to this heading"></a></h2>
+<p>It seems that GitHub created a Personal Access Token with a space character. This would happen if the Personal Token had a <cite>#</cite> or some other characters.</p>
+<p>Firstly, check that no space was copied by mistake to the <code class="docutils literal notranslate"><span class="pre">API_TOKEN_GITHUB</span></code>. If this was the case, do the correct the copy.</p>
+<p>Secondly, if GitHub created a token with <cite>#</cite> or a space inside, I suggest creating a new one.</p>
+<p>The problem, for those that are curious, is that the Personal Access Token is used in the git URLs and the URLs don’t support <cite>#</cite>. The error <code class="docutils literal notranslate"><span class="pre">URL</span> <span class="pre">using</span> <span class="pre">bad/illegal</span> <span class="pre">format</span></code> comes from the curl library used by git.</p>
+<p>More information: <a class="reference external" href="https://github.com/cpina/github-action-push-to-another-repository/issues/70">https://github.com/cpina/github-action-push-to-another-repository/issues/70</a></p>
+</section>
+<section id="error-remote-repository-not-found">
+<h2>Error: remote: Repository not found<a class="headerlink" href="#error-remote-repository-not-found" title="Permalink to this heading"></a></h2>
+<p>Bug report where the GitHub Action ended with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">remote</span><span class="p">:</span> <span class="n">Repository</span> <span class="ow">not</span> <span class="n">found</span><span class="o">.</span>
+<span class="n">fatal</span><span class="p">:</span> <span class="n">repository</span> <span class="s1">&#39;https://github.com/ORGNAME/REPONAME.git/&#39;</span> <span class="ow">not</span> <span class="n">found</span>
+</pre></div>
+</div>
+<p>See the possible solution in the comments of the <a class="reference external" href="https://github.com/cpina/github-action-push-to-another-repository/issues/75">https://github.com/cpina/github-action-push-to-another-repository/issues/75</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="setup.html" class="btn btn-neutral float-left" title="Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Carles Pina Estany.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
