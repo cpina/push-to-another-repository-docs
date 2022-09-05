@@ -70,4 +70,3 @@ The string ``ORIGIN_COMMIT`` is replaced by ``$ORIGIN_REPOSITORY_URL@commit``.
 ------------------------------------------
 
 The directory to wipe and replace in the target repository. Defaults to wiping the entire destination repository.
-s

@@ -21,3 +21,4 @@ Features:
 
   overview.rst
   usage.rst
+  setup.rst
