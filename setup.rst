@@ -20,3 +20,15 @@ There are two options to do this:
 Using the Personal Access Token, and if someone with write access to your repository or to this Action, could technically add code to leak the Token. Thus, **it is recommended to use the SSH deploy key method to minimise the impact** if this were to happen (the Personal Access Token would give access to more GitHub resources, not only the destination repository).
 
 Initially, this Action only used the Personal Access Token method and it still supports both methods to keep backwards compatibility.
+
+---------------------------
+Setup using SSH deploy keys
+---------------------------
+
+Refer to the section :ref:`Using SSH deploy keys <setup_ssh_deploy_keys>`.
+
+---------------------------------
+Setup using Personal Access Token
+---------------------------------
+
+Refer to the section :ref:`Using GitHub Personal Access Token <setup_personal_access_token>`.
