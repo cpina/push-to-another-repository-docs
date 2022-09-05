@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Setup &mdash; github-action-push-to-another-repository  documentation</title>
+  <title>Setup using the Personal Access Token &mdash; github-action-push-to-another-repository  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
@@ -19,8 +19,7 @@
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Configuration" href="usage.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,13 +38,10 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Table of contents</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Configuration</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ssh-deploy-key-vs-api-token-github"><code class="docutils literal notranslate"><span class="pre">SSH_DEPLOY_KEY</span></code> Vs. <code class="docutils literal notranslate"><span class="pre">API_TOKEN_GITHUB</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
 </ul>
 
         </div>
@@ -62,9 +58,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Setup</li>
+      <li>Setup using the Personal Access Token</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/setup.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/setup-using-personal-access-token.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -72,28 +68,51 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="setup">
-<span id="id1"></span><h1>Setup<a class="headerlink" href="#setup" title="Permalink to this heading"></a></h1>
-<p>Before using the GitHub Action, either the <strong>SSH Keys (recommended)</strong> or the <strong>Personal Access Token</strong> need to be set up as described below.</p>
-<section id="ssh-deploy-key-vs-api-token-github">
-<h2><code class="docutils literal notranslate"><span class="pre">SSH_DEPLOY_KEY</span></code> Vs. <code class="docutils literal notranslate"><span class="pre">API_TOKEN_GITHUB</span></code><a class="headerlink" href="#ssh-deploy-key-vs-api-token-github" title="Permalink to this heading"></a></h2>
-<p>The Action, entirely executed in your GitHub continuous integration environment, needs to be able to push to the destination repository.</p>
-<p>There are two options to do this:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="setup-using-ssh-deploy-keys.html#setup-ssh-deploy-keys"><span class="std std-ref">Using SSH deploy keys</span></a>: This key is restricted to the destination repository only (recommended)</p></li>
-<li><p><a class="reference internal" href="setup-using-personal-access-token.html#setup-personal-access-token"><span class="std std-ref">Using GitHub Personal Access Token</span></a>: The Token has access to all your repositories</p></li>
-</ul>
-<p>Using the Personal Access Token, and if someone with write access to your repository or to this Action, could technically add code to leak the Token. Thus, <strong>it is recommended to use the SSH deploy key method to minimise the impact</strong> if this were to happen (the Personal Access Token would give access to more GitHub resources, not only the destination repository).</p>
-<p>Initially, this Action only used the Personal Access Token method and it still supports both methods to keep backwards compatibility.</p>
-</section>
+  <section id="setup-using-the-personal-access-token">
+<span id="setup-personal-access-token"></span><h1>Setup using the Personal Access Token<a class="headerlink" href="#setup-using-the-personal-access-token" title="Permalink to this heading"></a></h1>
+<p>This does not need to be done if you chose to set up the deploy keys using the steps above. This method is here for compatibility with the initial approach of this GitHub Action. The Personal Access Token would have access to all your repositories, so if it were to be leaked, the damage would be greater: it would allow pushes to the same repositories to which the Personal Access Token owner has access, and other possible associated permissions. On the other hand, the setup is a bit easier because it does not involve creating the deploy key.</p>
+<dl>
+<dt>Generate your Personal Access Token using the following steps:</dt><dd><ol class="arabic">
+<li><p>Go to the general GitHub Settings (on the right-hand side on the profile picture)</p>
+<img alt="_images/pat-10.png" class="with-border" src="_images/pat-10.png" />
+</li>
+<li><p>On the left-hand side pane, scroll to the bottom and click on “Developer Settings”</p>
+<img alt="_images/pat-20.png" class="with-border" src="_images/pat-20.png" />
+</li>
+<li><p>Click on “Personal Access Tokens” (also available at <a class="reference external" href="https://github.com/settings/tokens">https://github.com/settings/tokens</a>)</p>
+<img alt="_images/pat-30.png" class="with-border" src="_images/pat-30.png" />
+</li>
+<li><p>Generate a new token entering a name and expiration date, and choose “Repo”. Click the bottom button “Generate token”. If you choose an expiration date you will need to create a new token after this date. In this example, I have used “No expiration”; this should be used carefully.</p>
+<img alt="_images/pat-40.png" class="with-border" src="_images/pat-40.png" />
+</li>
+<li><p>Copy the displayed token</p>
+<img alt="_images/pat-50.png" class="with-border" src="_images/pat-50.png" />
+</li>
+</ol>
+</dd>
+</dl>
+<p>Then make the token available to the GitHub Action using the following steps:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Go to the GitHub page for the repository that you push from (<strong>origin repository</strong>). Click on “Settings” for the repository</p>
+<img alt="_images/ssh-key-50.png" class="with-border" src="_images/ssh-key-50.png" />
+</li>
+<li><p>Click on “New repository secret”</p>
+<img alt="screenshots/ssh-key-60.png)" class="with-border" src="screenshots/ssh-key-60.png)" />
+</li>
+<li><p>Name: “API_TOKEN_GITHUB”</p></li>
+<li><p>Value: paste the token that you copied earlier</p></li>
+<li><p>Click on “Add secret”</p>
+<img alt="_images/pat-70.png" class="with-borders" src="_images/pat-70.png" />
+</li>
+</ol>
+</div></blockquote>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="usage.html" class="btn btn-neutral float-left" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
+          <footer>
 
   <hr/>
 
