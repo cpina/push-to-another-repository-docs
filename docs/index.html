@@ -18,7 +18,8 @@
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Overview" href="overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -36,12 +37,12 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Welcome to github-action-push-to-another-repository’s documentation!</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+              <p class="caption" role="heading"><span class="caption-text">Table of contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Configuration</a></li>
 </ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -68,8 +69,37 @@
              
   <section id="welcome-to-github-action-push-to-another-repository-s-documentation">
 <h1>Welcome to github-action-push-to-another-repository’s documentation!<a class="headerlink" href="#welcome-to-github-action-push-to-another-repository-s-documentation" title="Permalink to this heading"></a></h1>
-<p>This action…</p>
+<p>This GitHub Action will help to push files from one GitHub repository to another. For example, on a git push in a <cite>source</cite> repository, files can be pushed into a <cite>destination</cite> repository.</p>
+<p>A couple of examples of this could be:</p>
+<ul class="simple">
+<li><p>Specifying a directory in a <cite>source</cite> repository to be pushed to a <cite>destination</cite> repository</p></li>
+<li><p>Generating some files using another GitHub Action and pushing them into another <cite>destination</cite> repository (e.g. generate PDFs from MarkDown and push the PDFs across to the <cite>destination</cite> repository)</p></li>
+</ul>
+<p>Features:</p>
+<ul class="simple">
+<li><p>Authentication: using SSH deploy keys or GitHub Personal Access Token</p></li>
+<li><p>Support github.com server and also GitHub for Enterprise</p></li>
+<li><p>Specify in the configuration the source directory and destination directory and repository</p></li>
+<li><p>Change the commit message</p></li>
+<li><p>Documentation include example how to filter files or directories</p></li>
+</ul>
 <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Table of contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#source-directory-argument"><code class="docutils literal notranslate"><span class="pre">source-directory</span></code> (argument)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#destination-github-username-argument"><code class="docutils literal notranslate"><span class="pre">destination-github-username</span></code> (argument)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#destination-repository-name-argument"><code class="docutils literal notranslate"><span class="pre">destination-repository-name</span></code> (argument)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#user-email-argument-optional"><code class="docutils literal notranslate"><span class="pre">user-email</span></code> (argument) [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#user-name-argument-optional"><code class="docutils literal notranslate"><span class="pre">user-name</span></code> (argument) [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#destination-repository-username-argument-optional"><code class="docutils literal notranslate"><span class="pre">destination-repository-username</span></code> (argument) [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#target-branch-argument-optional"><code class="docutils literal notranslate"><span class="pre">target-branch</span></code> (argument) [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#commit-message-argument-optional"><code class="docutils literal notranslate"><span class="pre">commit-message</span></code> (argument) [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#target-directory-argument-optional"><code class="docutils literal notranslate"><span class="pre">target-directory</span></code> (argument) [optional]</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </section>
 <section id="indices-and-tables">
@@ -84,7 +114,9 @@
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
