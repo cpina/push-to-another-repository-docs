@@ -82,8 +82,29 @@
 <section id="how-can-i-copy-only-some-files-only-some-directories-exclude-some-files-etc">
 <h2>How can I copy only some files / only some directories / exclude some files / etc.?<a class="headerlink" href="#how-can-i-copy-only-some-files-only-some-directories-exclude-some-files-etc" title="Permalink to this heading"></a></h2>
 <p>If you need to filter files or directories (exclude files, include only some, etc.) use a step before the Action to filter these into a temporary directory that will be pushed. This can be done with “rsync” or any tool that you feel comfortable with (could be “rclone” or “find + exec + rm”, “find + exec + mv”, etc. depending on your needs).</p>
-<p>For example, see the step: <a class="reference external" href="https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/.github/workflows/ci.yml#L21">https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/.github/workflows/ci.yml#L21</a></p>
-<p>In the step above, <code class="docutils literal notranslate"><span class="pre">rsync</span></code> is installed (depending on your environment it will already be installed) and everything is copied from “output_temp” to “output” excluding “main.epub”. Be careful with the usage of “/” and the exclude parameter in rsync directories. Refer to the rsync documentation for other options such as filter using an extension to include only some files / directories, etc.</p>
+<p>See a <a class="reference external" href="https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/.github/workflows/ci.yml#L21">working example</a> to exclude a generated file (<em>main.epub</em>).</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
+<span class="w">    </span><span class="nt">container</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandoc/latex</span><span class="w"> </span><span class="c1"># just an example, adjust it</span><span class="w"></span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span><span class="w"></span>
+<span class="hll"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copy output_temp/ to output/ using rsync (to exclude main.epub in this example)</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">apk add rsync &amp;&amp; rsync -arv --exclude=&quot;/main.epub&quot; output_temp/ output/</span><span class="w"></span>
+</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pushes to another repository</span><span class="w"></span>
+<span class="w">        </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">push_directory</span><span class="w"></span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cpina/github-action-push-to-another-repository@main</span><span class="w"></span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">SSH_DEPLOY_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.SSH_DEPLOY_KEY }}</span><span class="w"></span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="hll"><span class="w">          </span><span class="nt">source-directory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">output/</span><span class="w"></span>
+</span><span class="w">          </span><span class="nt">destination-github-username</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;cpina&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="nt">destination-repository-name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;push-to-another-repository-output&#39;</span><span class="w"></span>
+<span class="w">          </span><span class="nt">user-email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">carles3@pina.cat</span><span class="w"></span>
+<span class="w">          </span><span class="nt">target-branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In the step above, <code class="docutils literal notranslate"><span class="pre">rsync</span></code> is installed (depending on your environment it will already be installed) and everything is copied from <code class="docutils literal notranslate"><span class="pre">output_temp</span></code> to <code class="docutils literal notranslate"><span class="pre">output</span></code> excluding <code class="docutils literal notranslate"><span class="pre">main.epub</span></code>. Be careful with the usage of “/” and the exclude parameter in rsync directories. Refer to the rsync documentation for other options such as filter using an extension to include only some files / directories, etc. <code class="docutils literal notranslate"><span class="pre">rsync</span></code> filters are very flexible.</p>
 </section>
 <section id="how-can-i-copy-the-whole-repository">
 <h2>How can I copy the whole repository?<a class="headerlink" href="#how-can-i-copy-the-whole-repository" title="Permalink to this heading"></a></h2>
@@ -92,7 +113,7 @@
 <p class="admonition-title">Warning</p>
 <p>This will also copy <code class="docutils literal notranslate"><span class="pre">.github/workflows/</span></code>! The destination repository will try to execute the Action. It will probably fail because the SSH keys / Personal Access Token will not be available for the destination repository.</p>
 </div>
-<p>An easy way to avoid the execution in the destination repository if you are using <code class="docutils literal notranslate"><span class="pre">source_directory:</span> <span class="pre">.</span></code> is to disable the GitHub Actions in the destination repository. To disable Actions in the destination repository:</p>
+<p>An easy way to avoid the execution in the destination repository if you are using <code class="docutils literal notranslate"><span class="pre">source_directory:</span> <span class="pre">.</span></code> is to disable the GitHub Actions in the destination repository. To disable GitHub Actions in the destination repository:</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li><p>Go to the destination repository (e.g. <a class="reference external" href="https://github.com/cpina/push-to-another-repository-output/settings">https://github.com/cpina/push-to-another-repository-output/settings</a>)</p></li>
