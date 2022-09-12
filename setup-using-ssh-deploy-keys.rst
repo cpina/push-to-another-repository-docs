@@ -14,7 +14,7 @@ Generate the key files
 
      .. code-block:: console
 
-        ssh-keygen -t ed25519 -C "your_email@example.com"
+        $ ssh-keygen -t ed25519 -C "your_email@example.com"
 
      (the type of key ``ed25519`` is recommended by the `GitHub documentation`_.)
 

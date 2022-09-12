@@ -4,7 +4,10 @@
 Setup
 =====
 
-Before using the GitHub Action, either the **SSH Keys (recommended)** or the **Personal Access Token** need to be set up as described below.
+.. note::
+  **Summary**: choose between :ref:`SSH deploy keys <setup_ssh_deploy_keys>` (recommended) or :ref:`Personal Access Token <setup_personal_access_token>` (probably easier to setup). Then follow the :ref:`setup example <setup_example>`.
+
+Before using the GitHub Action, either the :ref:`SSH Keys (recommended) <setup_ssh_deploy_keys>` or the :ref:`Personal Access Token <setup_personal_access_token>` need to be set up as described below.
 
 -------------------------------------------
 ``SSH_DEPLOY_KEY`` Vs. ``API_TOKEN_GITHUB``
@@ -12,7 +15,7 @@ Before using the GitHub Action, either the **SSH Keys (recommended)** or the **P
 
 The Action, entirely executed in your GitHub continuous integration environment, needs to be able to push to the destination repository.
 
-There are two options to do this:
+There are two options to give permissions for the action (that executes in your workflow) to push to the destination repository:
 
 - :ref:`Using SSH deploy keys <setup_ssh_deploy_keys>`: This key is restricted to the destination repository only (recommended)
 - :ref:`Using GitHub Personal Access Token <setup_personal_access_token>`: The Token has access to all your repositories
@@ -25,16 +28,16 @@ Initially, this Action only used the Personal Access Token method and it still s
 Setup using SSH deploy keys
 ---------------------------
 
-Refer to the section :ref:`Using SSH deploy keys <setup_ssh_deploy_keys>`.
+Refer to the section :ref:`Using SSH deploy keys <setup_ssh_deploy_keys>`. Not needed if you chose to use the Personal Access Token setup.
 
 ---------------------------------
 Setup using Personal Access Token
 ---------------------------------
 
-Refer to the section :ref:`Using GitHub Personal Access Token <setup_personal_access_token>`.
+Refer to the section :ref:`Using GitHub Personal Access Token <setup_personal_access_token>`. Not needed if you chose to use the SSH deploy keys.
 
--------------
-Setup example
--------------
+--------------------------------------
+Write your ``.github/workflow/ci.yml``
+--------------------------------------
 
-Refer to the section :ref:`Setup example <setup_example>`.
+Refer to :ref:`Setup example <setup_example>`.
