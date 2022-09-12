@@ -46,7 +46,12 @@
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generic-example.html">Example set up</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Sphinx example</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sphinx example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#steps">Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
@@ -77,19 +82,28 @@
              
   <section id="sphinx-example">
 <span id="id1"></span><h1>Sphinx example<a class="headerlink" href="#sphinx-example" title="Permalink to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>It is possible to use the <code class="docutils literal notranslate"><span class="pre">github-action-push-to-another-repository</span></code> to publish Sphinx documentation that is pushed into a GitHub repository into GitHub Pages (for example pushing the generated documentation into a branch of the same repository).</p>
 <p>This is how the documentation for the action is published: using the documented action.</p>
 <p>In the following example the documentation is pushed into a repository and the same repository (different branch) is used to make the documentation available using GitHub Pages. This could also be done using a different repository.</p>
-<dl class="simple">
-<dt>Steps (can change depending on your Sphinx setup, GitHub repositories setup, etc.)::</dt><dd><ol class="arabic simple">
+</section>
+<section id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this heading"></a></h2>
+<p>Steps (can change depending on your Sphinx setup, GitHub repositories setup, etc.):</p>
+<blockquote>
+<div><ol class="arabic simple">
 <li><p>Write the documentation using <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a></p></li>
 <li><p>Make sure that you can build the documentation using <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> in a virtual environment</p></li>
 <li><p>Using git command line or even GitHub page for your repository (clicking on the branches): create a new branch named <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> (or any other name)</p></li>
 <li><p>In the settings for your repository: on the left hand side click on <code class="docutils literal notranslate"><span class="pre">Pages</span></code> and then, in <code class="docutils literal notranslate"><span class="pre">Source</span></code> select <code class="docutils literal notranslate"><span class="pre">Deploy</span> <span class="pre">from</span> <span class="pre">a</span> <span class="pre">branch</span></code>. In Branch select <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> (or the name that you chose for the branch) and select the folder <code class="docutils literal notranslate"><span class="pre">/docs</span></code></p></li>
 </ol>
-</dd>
-</dl>
-<p>Once this is done you can follow the <code class="docutils literal notranslate"><span class="pre">publish.yml</span></code> example (see comments below):</p>
+</div></blockquote>
+<p>You also need to <a class="reference internal" href="setup.html#setup"><span class="std std-ref">setup the destination repository</span></a> to be able to push there.</p>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h2>
+<p>In the origin repository in the documentation where the documetation source (usually <a href="#id2"><span class="problematic" id="id3">*</span></a>.rst files) are pushed create a file named <code class="docutils literal notranslate"><span class="pre">.github/workflows/publish.yml</span></code>:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build documentation and publish</span><span class="w"></span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="nt">on</span><span class="p">:</span><span class="w"></span>
@@ -122,8 +136,9 @@
 <span class="linenos">30</span><span class="w">          </span><span class="nt">target-directory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs</span><span class="w"></span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt>See the <a class="reference external" href="https://github.com/cpina/push-to-another-repository-docs">push-to-another-repository-docs repository</a>. In particular the file <a class="reference external" href="https://github.com/cpina/push-to-another-repository-docs/blob/main/.github/workflows/publish.yml">.github/workflows/publish.yml</a> which will:</dt><dd><ul class="simple">
+<p>Relevant lines:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>Checkout the origin repository (line 13)</p></li>
 <li><p>Setup Python version 3.9 (lines 14-16)</p></li>
 <li><p>Install the packages in your <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> (contains Sphinx) (line 17)</p></li>
@@ -131,8 +146,8 @@
 <li><p>Create <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> file to also publish the <code class="docutils literal notranslate"><span class="pre">_static</span></code> directory (<a class="reference external" href="https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/">as documented</a>) (line 20)</p></li>
 <li><p>Usual github-action-push-to-another-repository setup (lines 21-30). The <code class="docutils literal notranslate"><span class="pre">destination-repository-name</span></code> is the same that the action is executed and the <code class="docutils literal notranslate"><span class="pre">target-branch</span></code> matches the one setup in the repository settings)</p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
+</section>
 </section>
 
 
