@@ -6,7 +6,7 @@ Configuration
 
 The variables below set up the behaviour of the GitHub Action.
 
-See the :ref:`example <setup_example>` for more context.
+See the :ref:`example <generic_example>` for more context.
 
 --------------------
 ``source-directory``

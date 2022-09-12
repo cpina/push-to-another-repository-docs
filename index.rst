@@ -11,7 +11,7 @@ A couple of examples of this could be:
 The GitHub Action code is shorter than the documentation. It needs some setup and initial configuration which is covered in detail but hopefully it will not take more than a few minutes.
 
 .. note::
-  For a **quickstart** see the :ref:`setup example<setup_example>`.
+  For a **quickstart** see the :ref:`setup example<generic_example>`.
 
 .. toctree::
   :caption: Table of contents
@@ -19,7 +19,8 @@ The GitHub Action code is shorter than the documentation. It needs some setup an
   overview.rst
   configuration.rst
   setup.rst
-  setup-example.rst
+  generic-example.rst
+  sphinx-example.rst
   troubleshooting.rst
   faq.rst
 
