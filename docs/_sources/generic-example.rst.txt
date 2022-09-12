@@ -1,4 +1,4 @@
-.. _setup_example:
+.. _generic_example:
 
 ==============
 Example set up

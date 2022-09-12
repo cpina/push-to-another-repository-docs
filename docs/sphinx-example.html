@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sphinx example &mdash; github-action-push-to-another-repository  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/js/goatcounter.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
+    <link rel="prev" title="Example set up" href="generic-example.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> github-action-push-to-another-repository
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generic-example.html">Example set up</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sphinx example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">github-action-push-to-another-repository</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Sphinx example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/sphinx-example.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sphinx-example">
+<span id="id1"></span><h1>Sphinx example<a class="headerlink" href="#sphinx-example" title="Permalink to this heading"></a></h1>
+<p>It is possible to use the <code class="docutils literal notranslate"><span class="pre">github-action-push-to-another-repository</span></code> to publish Sphinx documentation that is pushed into a GitHub repository into GitHub Pages (for example pushing the generated documentation into a branch of the same repository).</p>
+<p>This is how the documentation for the action is published: using the documented action.</p>
+<p>In the following example the documentation is pushed into a repository and the same repository (different branch) is used to make the documentation available using GitHub Pages. This could also be done using a different repository.</p>
+<dl class="simple">
+<dt>Steps (can change depending on your Sphinx setup, GitHub repositories setup, etc.)::</dt><dd><ol class="arabic simple">
+<li><p>Write the documentation using <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a></p></li>
+<li><p>Make sure that you can build the documentation using <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> in a virtual environment</p></li>
+<li><p>Using git command line or even GitHub page for your repository (clicking on the branches): create a new branch named <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> (or any other name)</p></li>
+<li><p>In the settings for your repository: on the left hand side click on <code class="docutils literal notranslate"><span class="pre">Pages</span></code> and then, in <code class="docutils literal notranslate"><span class="pre">Source</span></code> select <code class="docutils literal notranslate"><span class="pre">Deploy</span> <span class="pre">from</span> <span class="pre">a</span> <span class="pre">branch</span></code>. In Branch select <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> (or the name that you chose for the branch) and select the folder <code class="docutils literal notranslate"><span class="pre">/docs</span></code></p></li>
+</ol>
+</dd>
+</dl>
+<p>Once this is done you can follow the <code class="docutils literal notranslate"><span class="pre">publish.yml</span></code> example (see comments below):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build documentation and publish</span><span class="w"></span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="nt">on</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 4</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="linenos"> 6</span><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">10</span><span class="w">  </span><span class="nt">publish</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">11</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
+<span class="linenos">12</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">13</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span><span class="w"></span>
+<span class="linenos">14</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span><span class="w"></span>
+<span class="linenos">15</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">16</span><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.9&#39;</span><span class="w"></span>
+<span class="linenos">17</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -r requirements.txt</span><span class="w"></span>
+<span class="linenos">18</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build documentation</span><span class="w"></span>
+<span class="linenos">19</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">make html</span><span class="w"></span>
+<span class="linenos">20</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">touch _build/html/.nojekyll</span><span class="w"></span>
+<span class="linenos">21</span><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cpina/github-action-push-to-another-repository@main</span><span class="w"></span>
+<span class="linenos">22</span><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">23</span><span class="w">          </span><span class="nt">SSH_DEPLOY_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.SSH_DEPLOY_KEY }}</span><span class="w"></span>
+<span class="linenos">24</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">25</span><span class="w">          </span><span class="nt">source-directory</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;_build/html&#39;</span><span class="w"></span>
+<span class="linenos">26</span><span class="w">          </span><span class="nt">destination-github-username</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;cpina&#39;</span><span class="w"></span>
+<span class="linenos">27</span><span class="w">          </span><span class="nt">destination-repository-name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;push-to-another-repository-docs&#39;</span><span class="w"></span>
+<span class="linenos">28</span><span class="w">          </span><span class="nt">user-email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">carles@pina.cat</span><span class="w"></span>
+<span class="linenos">29</span><span class="w">          </span><span class="nt">target-branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gh-pages</span><span class="w"></span>
+<span class="linenos">30</span><span class="w">          </span><span class="nt">target-directory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs</span><span class="w"></span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>See the <a class="reference external" href="https://github.com/cpina/push-to-another-repository-docs">push-to-another-repository-docs repository</a>. In particular the file <a class="reference external" href="https://github.com/cpina/push-to-another-repository-docs/blob/main/.github/workflows/publish.yml">.github/workflows/publish.yml</a> which will:</dt><dd><ul class="simple">
+<li><p>Checkout the origin repository (line 13)</p></li>
+<li><p>Setup Python version 3.9 (lines 14-16)</p></li>
+<li><p>Install the packages in your <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> (contains Sphinx) (line 17)</p></li>
+<li><p>Build the documentation (line 18-19)</p></li>
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> file to also publish the <code class="docutils literal notranslate"><span class="pre">_static</span></code> directory (<a class="reference external" href="https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/">as documented</a>) (line 20)</p></li>
+<li><p>Usual github-action-push-to-another-repository setup (lines 21-30). The <code class="docutils literal notranslate"><span class="pre">destination-repository-name</span></code> is the same that the action is executed and the <code class="docutils literal notranslate"><span class="pre">target-branch</span></code> matches the one setup in the repository settings)</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="generic-example.html" class="btn btn-neutral float-left" title="Example set up" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Carles Pina Estany.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

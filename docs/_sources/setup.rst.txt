@@ -5,7 +5,7 @@ Setup
 =====
 
 .. note::
-  **Summary**: choose between :ref:`SSH deploy keys <setup_ssh_deploy_keys>` (recommended) or :ref:`Personal Access Token <setup_personal_access_token>` (probably easier to setup). Then follow the :ref:`setup example <setup_example>`.
+  **Summary**: choose between :ref:`SSH deploy keys <setup_ssh_deploy_keys>` (recommended) or :ref:`Personal Access Token <setup_personal_access_token>` (probably easier to setup). Then follow the :ref:`setup example <generic_example>`.
 
 Before using the GitHub Action, either the :ref:`SSH Keys (recommended) <setup_ssh_deploy_keys>` or the :ref:`Personal Access Token <setup_personal_access_token>` need to be set up as described below.
 
@@ -40,4 +40,4 @@ Refer to the section :ref:`Using GitHub Personal Access Token <setup_personal_ac
 Write your ``.github/workflow/ci.yml``
 --------------------------------------
 
-Refer to :ref:`Setup example <setup_example>`.
+Refer to :ref:`Setup example <generic_example>`.

@@ -4,6 +4,12 @@
 FAQ
 ===
 
+-------------------------------------------------------------------------------------------------------
+Can github-action-push-to-another-repository be used to publish sphinx documentation into GitHub pages?
+-------------------------------------------------------------------------------------------------------
+
+Yes, see the example.
+
 -----------------------------------------------------------------------------------
 How can I copy only some files / only some directories / exclude some files / etc.?
 -----------------------------------------------------------------------------------
@@ -56,3 +62,5 @@ An easy way to avoid the execution in the destination repository if you are usin
  #. Click on "Save"
 
 .. _working example: https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/.github/workflows/ci.yml#L21
+.. _push-to-another-repository-docs repository: https://github.com/cpina/push-to-another-repository-docs
+.. _.github/workflows/publish.yml: https://github.com/cpina/push-to-another-repository-docs/blob/main/.github/workflows/publish.yml
