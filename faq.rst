@@ -24,7 +24,7 @@ See a `working example`_ to exclude a generated file (*main.epub*).
  jobs:
    build:
      runs-on: ubuntu-latest
-     container: pandoc/latex # just an example, adjust it
+     container: ubuntu
      steps:
        - uses: actions/checkout@v2
        - name: Copy output_temp/ to output/ using rsync (to exclude main.epub in this example)
