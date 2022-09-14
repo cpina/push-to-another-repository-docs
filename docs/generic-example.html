@@ -90,12 +90,14 @@
 <span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
-<span class="w">    </span><span class="nt">container</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandoc/latex</span><span class="w"></span>
+<span class="w">    </span><span class="nt">container</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandoc/latex</span><span class="w">    </span><span class="c1"># &quot;ubuntu&quot; is a more generic container</span><span class="w"></span>
+<span class="w">                               </span><span class="c1"># using &quot;pandoc/latex&quot; because of dependencies</span><span class="w"></span>
+<span class="w">                               </span><span class="c1"># used in the specific &quot;build.sh&quot;</span><span class="w"></span>
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">creates output</span><span class="w"></span>
-<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">sh ./build.sh</span><span class="w"> </span><span class="c1"># some command from your repository that creates</span><span class="w"></span>
-<span class="hll"><span class="w">                            </span><span class="c1"># output to &quot;source-directory&quot; (&quot;output&quot; in the example)</span><span class="w"></span>
+<span class="hll"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">creates output</span><span class="w"></span>
+</span><span class="hll"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">sh ./build.sh</span><span class="w"> </span><span class="c1"># some command from your repository that creates</span><span class="w"></span>
+</span><span class="hll"><span class="w">                            </span><span class="c1"># output to &quot;source-directory&quot; (&quot;output&quot; in the example)</span><span class="w"></span>
 </span><span class="hll"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pushes to another repository</span><span class="w"></span>
 </span><span class="hll"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cpina/github-action-push-to-another-repository@main</span><span class="w"></span>
 </span><span class="hll"><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w"></span>

@@ -22,7 +22,9 @@ Note that only one of the lines, ``SSH_DEPLOY_KEY`` or ``API_TOKEN_GITHUB``, are
  jobs:
    build:
      runs-on: ubuntu-latest
-     container: pandoc/latex
+     container: pandoc/latex    # "ubuntu" is a more generic container
+                                # using "pandoc/latex" because of dependencies
+                                # used in the specific "build.sh"
      steps:
        - uses: actions/checkout@v2
        - name: creates output
