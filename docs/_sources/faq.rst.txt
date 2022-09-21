@@ -101,4 +101,4 @@ There are some things that you need to be aware of:
   * because the action is running in the environment of the real machine, and the environment might be different in different installations and versions: it is possible that problems will occur. Read the output, fork the project if changes are needed. There is not error checking for binaries or versions of git, shell versions, etc. If you need help get in touch via a new `GitHub Issue`_. If it works for you feel free to get in touch as well as an `GitHub Issue`_ (I will close it saying thank you) so I know it
 
 .. _action.yml: https://github.com/cpina/github-action-push-to-another-repository/blob/composite-1.5.1/action.yml#L60
-.. _GitHub Issue: https://github.com/cpina/github-action-push-to-another-repository/issues/new/choose
+.. _GitHub Issue: https://github.com/cpina/github-action-push-to-another-repository/issues/new?assignees=&labels=Windows-Mac-NoDocker&template=windows_mac_nodocker.md&title=
