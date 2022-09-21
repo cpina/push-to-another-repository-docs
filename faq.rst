@@ -64,3 +64,41 @@ An easy way to avoid the execution in the destination repository if you are usin
 .. _working example: https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/.github/workflows/ci.yml#L21
 .. _push-to-another-repository-docs repository: https://github.com/cpina/push-to-another-repository-docs
 .. _.github/workflows/publish.yml: https://github.com/cpina/push-to-another-repository-docs/blob/main/.github/workflows/publish.yml
+
+-----------------------------------------------------------
+Could it work on Mac OS, Windows or No Docker environments?
+-----------------------------------------------------------
+
+The ``main`` branch or the main releases (named ``v1.5.1``, etc.) don't support Mac OS X or Windows. Only Linux. This is the reason that you need, in your ``.github/workflows/file.yml`` something like:
+
+.. code-block:: yaml
+
+ runs-on: ubuntu-latest
+ container: ubuntu
+
+GitHub runs the action in a Docker container and makes the files (from the previous steps, like the usual `build.sh`) available in the container.
+
+There is a different branch of the GitHub Action working on ``composite`` mode instead of Docker mode. Specify the ``@composite-1.5.1`` branch, for example:
+
+.. code-block:: yaml
+ :emphasize-lines: 2
+
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@composite-1.5.1
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        with:
+          source-directory: output/
+          destination-github-username: 'cpina'
+          destination-repository-name: 'push-to-another-repository-playground'
+          user-email: carles@pina.cat
+          target-branch: pushed-from-action
+
+There are some things that you need to be aware of:
+
+  * the action uses ``#!/bin/sh``. It should work on workers that can execute ``#!/bin/sh`` (Mac should be ok, Windows might need some extra setup)
+  * the action uses the binary ``ssh-keyscan`` (usually packaged with ``openssh-client``) and ``git``. If you don't have them you need to install them. You might need to modify the `action.yml`_ of the forked GitHub Action.
+  * because the action is running in the environment of the real machine, and the environment might be different in different installations and versions: it is possible that problems will occur. Read the output, fork the project if changes are needed. There is not error checking for binaries or versions of git, shell versions, etc. If you need help get in touch via a new `GitHub Issue`_. If it works for you feel free to get in touch as well as an `GitHub Issue`_ (I will close it saying thank you) so I know it
+
+.. _action.yml: https://github.com/cpina/github-action-push-to-another-repository/blob/composite-1.5.1/action.yml#L60
+.. _GitHub Issue: https://github.com/cpina/github-action-push-to-another-repository/issues/new/choose
