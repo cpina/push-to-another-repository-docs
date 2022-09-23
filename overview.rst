@@ -22,6 +22,7 @@ Features
 - Specify in the configuration the source directory, destination directory and repository
 - Change the commit message
 - Documentation includes examples of how to filter files or directories
+- Documentation includes an example of how to use this GitHub Action to publish Sphinx documentation
 
 .. _push-to-another-repository-deploy-keys-example: https://github.com/cpina/push-to-another-repository-deploy-keys-example
 .. _ci.yml (ssh keys): https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/.github/workflows/ci.yml#L21
