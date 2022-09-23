@@ -12,12 +12,13 @@ This is the most common problem. Carefully read the logs on the GitHub Action pa
 
  #. User was logged in to GitHub with an account that did not have permission to push into the destination repository. The Action could not push (permission denied).
 
- #. Expired Token.
+ #. Expired token.
 
  #. SSH-generated key pair (public/private) was set in the wrong way.
 
  #. Wrong copy-paste including spaces or other characters that did not belong to the key / token.
 
+Use the following tests to ensure the setup is correct.
 
 Test connection to GitHub using the key pair
 --------------------------------------------
