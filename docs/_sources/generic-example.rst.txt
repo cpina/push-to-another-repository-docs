@@ -1,10 +1,10 @@
 .. _generic_example:
 
 ==============
-Example set up
+Example setup
 ==============
 
-This example shows both set up methods. This is part of a *GitHub workflow* action, for example, in your repository: ``.github/workflow/ci.yml``.
+This example shows both setup methods. This is part of a *GitHub workflow* Action, for example, in your repository: ``.github/workflow/ci.yml``.
 
 Note that only one of the lines, ``SSH_DEPLOY_KEY`` or ``API_TOKEN_GITHUB``, are needed :ref:`according to the chosen setup<setup>` that is being used.
 

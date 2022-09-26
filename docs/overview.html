@@ -48,7 +48,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generic-example.html">Example set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generic-example.html">Example setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx-example.html">Sphinx example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
@@ -83,9 +83,9 @@
 <p>There are two ways to set up this GitHub action:</p>
 <ul class="simple">
 <li><p>Using SSH deploy keys (recommended, a bit harder to set up): <a class="reference external" href="https://github.com/cpina/push-to-another-repository-deploy-keys-example">push-to-another-repository-deploy-keys-example</a>. The configuration is in the file <a class="reference external" href="https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/.github/workflows/ci.yml#L21">ci.yml (ssh keys)</a>.</p></li>
-<li><p>Using a Personal Access Token (first iteration, not recommended but easier to set up: <a class="reference external" href="https://github.com/cpina/push-to-another-repository-example">push-to-another-repository-example</a>. The configuration is in the file <a class="reference external" href="https://github.com/cpina/push-to-another-repository-example/blob/main/.github/workflows/ci.yml#L21">ci.yml (token)</a>.</p></li>
+<li><p>Using a Personal Access Token (first iteration, not recommended but easier to set up): <a class="reference external" href="https://github.com/cpina/push-to-another-repository-example">push-to-another-repository-example</a>. The configuration is in the file <a class="reference external" href="https://github.com/cpina/push-to-another-repository-example/blob/main/.github/workflows/ci.yml#L21">ci.yml (token)</a>.</p></li>
 </ul>
-<p>Once the setup using one of the methods above has been done, in the examples, the file <a class="reference external" href="https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/build.sh">build.sh</a> (depending on your GitHub workflow) is executed, creating a new directory <code class="docutils literal notranslate"><span class="pre">output/</span></code>, and this directory is copied across to the <a class="reference external" href="https://github.com/cpina/push-to-another-repository-output">destination repository</a>.</p>
+<p>Once the setup has been done, in the examples, the file <a class="reference external" href="https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/build.sh">build.sh</a> (depending on your GitHub workflow) is executed, creating a new directory <code class="docutils literal notranslate"><span class="pre">output/</span></code>, and this directory is copied across to the <a class="reference external" href="https://github.com/cpina/push-to-another-repository-output">destination repository</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Please bear in mind that the files in the specified directory of the target repository are deleted unless the option <cite>target-directory</cite> is used (in this case, only the files for this directory are deleted).</p>
@@ -94,10 +94,11 @@
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Authentication: using SSH deploy keys or GitHub Personal Access Token (see <a class="reference internal" href="setup.html#setup"><span class="std std-ref">Setup</span></a>.)</p></li>
-<li><p>Support github.com server and also GitHub for Enterprise (via configuration <a class="reference internal" href="configuration.html#github-server"><span class="std std-ref">github-server [optional]</span></a> &lt;github-server-configuration&gt;.)</p></li>
-<li><p>Specify in the configuration the source directory and destination directory and repository</p></li>
+<li><p>Support for github.com server and also GitHub for Enterprise (via configuration <a class="reference internal" href="configuration.html#github-server"><span class="std std-ref">github-server [optional]</span></a> &lt;github-server-configuration&gt;.)</p></li>
+<li><p>Specify in the configuration the source directory, destination directory and repository</p></li>
 <li><p>Change the commit message</p></li>
-<li><p>Documentation include example how to filter files or directories</p></li>
+<li><p>Documentation includes examples of how to filter files or directories</p></li>
+<li><p>Documentation includes an example of how to use this GitHub Action to publish Sphinx documentation</p></li>
 </ul>
 </section>
 </section>

@@ -43,7 +43,7 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generic-example.html">Example set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generic-example.html">Example setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx-example.html">Sphinx example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
@@ -75,7 +75,7 @@
              
   <section id="setup-using-the-personal-access-token">
 <span id="setup-personal-access-token"></span><h1>Setup using the Personal Access Token<a class="headerlink" href="#setup-using-the-personal-access-token" title="Permalink to this heading"></a></h1>
-<p>This does not need to be done if you chose to set up the deploy keys using the steps above. This method is here for compatibility with the initial approach of this GitHub Action. The Personal Access Token would have access to all your repositories, so if it were to be leaked, the damage would be greater: it would allow pushes to the same repositories to which the Personal Access Token owner has access, and other possible associated permissions. On the other hand, the setup is a bit easier because it does not involve creating the deploy key.</p>
+<p>This does not need to be done if you chose to set up the SSH deploy keys using the steps above. This method is here for compatibility with the initial approach of this GitHub Action. The Personal Access Token would have access to all your repositories, so if it were to be leaked, the damage would be greater: it would allow pushes to the same repositories to which the Personal Access Token owner has access, and other possible associated permissions. On the other hand, the setup is a bit easier because it does not involve creating the SSH deploy key.</p>
 <dl>
 <dt>Generate your Personal Access Token using the following steps:</dt><dd><ol class="arabic">
 <li><p>Go to the general GitHub Settings (on the right-hand side on the profile picture)</p>
@@ -87,7 +87,7 @@
 <li><p>Click on “Personal Access Tokens” (also available at <a class="reference external" href="https://github.com/settings/tokens">https://github.com/settings/tokens</a>)</p>
 <img alt="_images/pat-30.png" class="with-border" src="_images/pat-30.png" />
 </li>
-<li><p>Generate a new token entering a name and expiration date, and choose “Repo”. Click the bottom button “Generate token”. If you choose an expiration date you will need to create a new token after this date. In this example, I have used “No expiration”; this should be used carefully.</p>
+<li><p>Generate a new token entering a name and expiration date, and choose “Repo”. Click the bottom button, “Generate token”. If you choose an expiration date you will need to create a new token after this date. In this example, I have used “No expiration”; this should be used carefully.</p>
 <img alt="_images/pat-40.png" class="with-border" src="_images/pat-40.png" />
 </li>
 <li><p>Copy the displayed token</p>
@@ -99,7 +99,7 @@
 <p>Then make the token available to the GitHub Action using the following steps:</p>
 <blockquote>
 <div><ol class="arabic">
-<li><p>Go to the GitHub page for the repository that you push from (<strong>origin repository</strong>). Click on “Settings” for the repository</p>
+<li><p>Go to the GitHub page for the source repository (<strong>origin repository</strong>). Click on “Settings” for the repository</p>
 <img alt="_images/ssh-key-50.png" class="with-border" src="_images/ssh-key-50.png" />
 </li>
 <li><p>Click on “New repository secret”</p>

@@ -4,13 +4,13 @@
 Setup using SSH deploy keys
 ===========================
 
-Recommended, but the setup has a few more steps compared with the s Access Token option.
+Recommended, but the setup has a few more steps compared with the Personal Access Token option.
 
 ----------------------
 Generate the key files
 ----------------------
 
-  #. In your computer terminal, generate an SSH key using, in your terminal:
+  #. In your computer terminal, generate an SSH key using:
 
      .. code-block:: console
 
@@ -22,7 +22,7 @@ Generate the key files
 
   #. Leave the passphrase empty (otherwise the GitHub Action cannot use it)
 
-The steps above will have created two files: the private key (in the file ``id_github_{name_of_your_destination_repository}``) and the public key (``id_github_{name_of_your_destination_repository}.pub``).
+The steps above will create two files: the private key (in the file ``id_github_{name_of_your_destination_repository}``) and the public key (``id_github_{name_of_your_destination_repository}.pub``).
 
 Full example:
 
@@ -64,7 +64,7 @@ The public and private SSH files:
    $
 
 --------------------------------------------
-Add public key in the destination repository
+Add public key to the destination repository
 --------------------------------------------
 
 In this section, we will add the generated public key to the destination repository. This allows the Action to push there.
@@ -96,7 +96,7 @@ In this section, we will add the generated public key to the destination reposit
 .. _GitHub documentation: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
 
 ----------------------------------------
-Add private key in the source repository
+Add private key to the source repository
 ----------------------------------------
 
 In this section, we will add the generated private key to the source repository. This allows the Action to push to the destination repository.
@@ -128,4 +128,3 @@ In this section, we will add the generated private key to the source repository.
 The GitHub Action will detect the ``SSH_DEPLOY_KEY`` secret and use the private key to push to the destination directory.
 
 Please read the troubleshooting section if you encounter problems.
-

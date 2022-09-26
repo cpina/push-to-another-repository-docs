@@ -8,21 +8,22 @@ Troubleshooting
 Cannot push to the destination repository
 -----------------------------------------
 
-This is the most common problem. Carefully read the logs on the GitHub Action pages of the source repositories. The action tries to write the errors and gives possible solutions / hints. To solve this problem, the first suggestion is to follow the steps above to redo the setup following the steps above. If this still does not work, the following problems have occurred in the past, so they may be useful points to start solving the problem:
+This is the most common problem. Carefully read the logs on the GitHub Action pages of the source repositories. The Action tries to write the errors and gives possible solutions / hints. To solve this problem, the first suggestion is to redo the setup steps. If this still does not work, the following problems have occurred in the past, so they may be useful places to start to fix the problem:
 
- #. User was logged in to GitHub with an account that did not have permission to push into the destination repository. The action could not push (permission denied).
+ #. User was logged in to GitHub with an account that did not have permission to push into the destination repository. The Action could not push (permission denied).
 
- #. Expired Token.
+ #. Expired token.
 
- #. SSH generated key pair (public/private) was set in the wrong way.
+ #. SSH-generated key pair (public/private) was set in the wrong way.
 
- #. Wrong copy-paste including spaces or other characters that did not belong to the key / token
+ #. Wrong copy-paste including spaces or other characters that did not belong to the key / token.
 
+Use the following tests to ensure the setup is correct.
 
 Test connection to GitHub using the key pair
 --------------------------------------------
 
-The public key should have been added into the repository (as an SSH deploy key following the documentation above).
+The public key should have been added into the repository as an SSH deploy key.
 
 Then, do:
 
@@ -30,7 +31,7 @@ Then, do:
 
   $ ssh -o IdentitiesOnly=yes -i .ssh/id_push-to-another-repository-output_ed25519 git@github.com
 
-Instead of ``.ssh/id_push-to-another-repository-output_ed25519``, use the file as you created it. This is the **private** key (it does not end with `.pub`). If you used the correct private key for the correctly uploaded public key, it will print something along the lines of:
+Instead of ``.ssh/id_push-to-another-repository-output_ed25519``, use the file as you created it. This is the **private** key (it does not end with `.pub`). If you used the correct private key for the correctly-uploaded public key, it will print something along the lines of:
 
 .. code-bock::
 
@@ -71,7 +72,7 @@ Visualise the key in the destination repository, and it should say:
 Test the Personal Access Token
 ---------------------------------
 
-If the Personal Access Token method was used for the setup, check it has the correct permissions to push to the destination repository and has not expired.
+If the Personal Access Token method was used for the setup, check it has the correct permissions to push to the destination repository and that it has not expired.
 
 In your terminal do:
 
@@ -117,4 +118,4 @@ Bug report where the GitHub Action ended with:
   remote: Repository not found.
   fatal: repository 'https://github.com/ORGNAME/REPONAME.git/' not found
 
-See the possible solution in the comments of the https://github.com/cpina/github-action-push-to-another-repository/issues/75
+See the possible solution in the comments of https://github.com/cpina/github-action-push-to-another-repository/issues/75

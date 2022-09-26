@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Example set up" href="generic-example.html" />
+    <link rel="next" title="Example setup" href="generic-example.html" />
     <link rel="prev" title="Configuration" href="configuration.html" /> 
 </head>
 
@@ -51,7 +51,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#write-your-github-workflow-ci-yml">Write your <code class="docutils literal notranslate"><span class="pre">.github/workflow/ci.yml</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="generic-example.html">Example set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generic-example.html">Example setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx-example.html">Sphinx example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
@@ -85,19 +85,18 @@
 <span id="id1"></span><h1>Setup<a class="headerlink" href="#setup" title="Permalink to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>Summary</strong>: choose between <a class="reference internal" href="setup-using-ssh-deploy-keys.html#setup-ssh-deploy-keys"><span class="std std-ref">SSH deploy keys</span></a> (recommended) or <a class="reference internal" href="setup-using-personal-access-token.html#setup-personal-access-token"><span class="std std-ref">Personal Access Token</span></a> (probably easier to setup). Then follow the <a class="reference internal" href="generic-example.html#generic-example"><span class="std std-ref">setup example</span></a>.</p>
+<p><strong>Summary</strong>: choose between one of the two authentication methods which needs to be set up before using the GitHub Action: <a class="reference internal" href="setup-using-ssh-deploy-keys.html#setup-ssh-deploy-keys"><span class="std std-ref">SSH deploy keys</span></a> (recommended) or <a class="reference internal" href="setup-using-personal-access-token.html#setup-personal-access-token"><span class="std std-ref">Personal Access Token</span></a> (probably easier to setup). Then follow the <a class="reference internal" href="generic-example.html#generic-example"><span class="std std-ref">setup example</span></a>.</p>
 </div>
-<p>Before using the GitHub Action, either the <a class="reference internal" href="setup-using-ssh-deploy-keys.html#setup-ssh-deploy-keys"><span class="std std-ref">SSH Keys (recommended)</span></a> or the <a class="reference internal" href="setup-using-personal-access-token.html#setup-personal-access-token"><span class="std std-ref">Personal Access Token</span></a> need to be set up as described below.</p>
 <section id="ssh-deploy-key-vs-api-token-github">
 <h2><code class="docutils literal notranslate"><span class="pre">SSH_DEPLOY_KEY</span></code> Vs. <code class="docutils literal notranslate"><span class="pre">API_TOKEN_GITHUB</span></code><a class="headerlink" href="#ssh-deploy-key-vs-api-token-github" title="Permalink to this heading"></a></h2>
 <p>The Action, entirely executed in your GitHub continuous integration environment, needs to be able to push to the destination repository.</p>
-<p>There are two options to give permissions for the action (that executes in your workflow) to push to the destination repository:</p>
+<p>There are two options that give permission for the Action (that executes in your workflow) to push to the destination repository:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="setup-using-ssh-deploy-keys.html#setup-ssh-deploy-keys"><span class="std std-ref">Using SSH deploy keys</span></a>: This key is restricted to the destination repository only (recommended)</p></li>
 <li><p><a class="reference internal" href="setup-using-personal-access-token.html#setup-personal-access-token"><span class="std std-ref">Using GitHub Personal Access Token</span></a>: The Token has access to all your repositories</p></li>
 </ul>
-<p>Using the Personal Access Token, and if someone with write access to your repository or to this Action, could technically add code to leak the Token. Thus, <strong>it is recommended to use the SSH deploy key method to minimise the impact</strong> if this were to happen (the Personal Access Token would give access to more GitHub resources, not only the destination repository).</p>
-<p>Initially, this Action only used the Personal Access Token method and it still supports both methods to keep backwards compatibility.</p>
+<p>Using the Personal Access Token, someone with write access to your repository or to this Action, could technically add code to leak the Token. Thus, <strong>it is recommended to use the SSH deploy key method to minimise the impact</strong> if this were to happen.</p>
+<p>Initially, this Action only used the Personal Access Token method. It still supports both methods to maintain backwards compatibility.</p>
 </section>
 <section id="setup-using-ssh-deploy-keys">
 <h2>Setup using SSH deploy keys<a class="headerlink" href="#setup-using-ssh-deploy-keys" title="Permalink to this heading"></a></h2>
@@ -118,7 +117,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="configuration.html" class="btn btn-neutral float-left" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="generic-example.html" class="btn btn-neutral float-right" title="Example set up" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="generic-example.html" class="btn btn-neutral float-right" title="Example setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

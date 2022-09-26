@@ -14,7 +14,7 @@ See the :ref:`example <generic_example>` for more context.
 Directory that the GitHub Action will push files from.
 
 .. note::
-  It can be ``.`` to push all the repository, but read the FAQ.
+  It can be ``.`` to push all of the repository, but read the FAQ.
 
 -------------------------------
 ``destination-github-username``
@@ -36,9 +36,9 @@ Name of the ``destination`` repository. To output to a repository such as https:
 ``user-email`` [optional]
 -------------------------
 
-The email that will be used for the commit to the ``destination-repository-name``. Used for the "Author" of the generated commit.
+The email address that will be used for the commit to the ``destination-repository-name``, normally that of the "Author" of the generated commit.
 
-If it is not specified the commit will not have the author's email in the commit.
+If it is not specified, the commit will not have the author's email in the commit.
 
 ------------------------
 ``user-name`` [optional]
@@ -80,4 +80,4 @@ The directory to wipe and replace in the target repository. Defaults to wiping t
 ``github-server`` [optional]
 ----------------------------
 
-Defaults to github.com. Needs to be different if using GitHub enterprise.
+Defaults to github.com. Needs to be different if using GitHub for Enterprise.

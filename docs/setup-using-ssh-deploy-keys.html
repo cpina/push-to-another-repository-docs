@@ -43,7 +43,7 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="generic-example.html">Example set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generic-example.html">Example setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sphinx-example.html">Sphinx example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
@@ -75,12 +75,12 @@
              
   <section id="setup-using-ssh-deploy-keys">
 <span id="setup-ssh-deploy-keys"></span><h1>Setup using SSH deploy keys<a class="headerlink" href="#setup-using-ssh-deploy-keys" title="Permalink to this heading"></a></h1>
-<p>Recommended, but the setup has a few more steps compared with the s Access Token option.</p>
+<p>Recommended, but the setup has a few more steps compared with the Personal Access Token option.</p>
 <section id="generate-the-key-files">
 <h2>Generate the key files<a class="headerlink" href="#generate-the-key-files" title="Permalink to this heading"></a></h2>
 <blockquote>
 <div><ol class="arabic">
-<li><p>In your computer terminal, generate an SSH key using, in your terminal:</p>
+<li><p>In your computer terminal, generate an SSH key using:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ssh-keygen -t ed25519 -C <span class="s2">&quot;your_email@example.com&quot;</span>
 </pre></div>
 </div>
@@ -90,7 +90,7 @@
 <li><p>Leave the passphrase empty (otherwise the GitHub Action cannot use it)</p></li>
 </ol>
 </div></blockquote>
-<p>The steps above will have created two files: the private key (in the file <code class="docutils literal notranslate"><span class="pre">id_github_{name_of_your_destination_repository}</span></code>) and the public key (<code class="docutils literal notranslate"><span class="pre">id_github_{name_of_your_destination_repository}.pub</span></code>).</p>
+<p>The steps above will create two files: the private key (in the file <code class="docutils literal notranslate"><span class="pre">id_github_{name_of_your_destination_repository}</span></code>) and the public key (<code class="docutils literal notranslate"><span class="pre">id_github_{name_of_your_destination_repository}.pub</span></code>).</p>
 <p>Full example:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ssh-keygen -t ed25519 -C carles@pina.cat
 <span class="go">Generating public/private ed25519 key pair.</span>
@@ -127,8 +127,8 @@
 </pre></div>
 </div>
 </section>
-<section id="add-public-key-in-the-destination-repository">
-<h2>Add public key in the destination repository<a class="headerlink" href="#add-public-key-in-the-destination-repository" title="Permalink to this heading"></a></h2>
+<section id="add-public-key-to-the-destination-repository">
+<h2>Add public key to the destination repository<a class="headerlink" href="#add-public-key-to-the-destination-repository" title="Permalink to this heading"></a></h2>
 <p>In this section, we will add the generated public key to the destination repository. This allows the Action to push there.</p>
 <blockquote>
 <div><ol class="arabic">
@@ -153,8 +153,8 @@
 </ol>
 </div></blockquote>
 </section>
-<section id="add-private-key-in-the-source-repository">
-<h2>Add private key in the source repository<a class="headerlink" href="#add-private-key-in-the-source-repository" title="Permalink to this heading"></a></h2>
+<section id="add-private-key-to-the-source-repository">
+<h2>Add private key to the source repository<a class="headerlink" href="#add-private-key-to-the-source-repository" title="Permalink to this heading"></a></h2>
 <p>In this section, we will add the generated private key to the source repository. This allows the Action to push to the destination repository.</p>
 <blockquote>
 <div><ol class="arabic">
