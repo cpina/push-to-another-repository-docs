@@ -107,6 +107,31 @@ The problem, for those that are curious, is that the Personal Access Token is us
 
 More information: https://github.com/cpina/github-action-push-to-another-repository/issues/70
 
+---------------------------------------------------------------------------------
+Error: RPC failed; curl 92 HTTP/2 stream 0 was not closed cleanly: CANCEL (err 8)
+---------------------------------------------------------------------------------
+
+Full error as seen in the output of the action:
+
+.. code-block::
+
+    [+] Pushing git commit
+        error: RPC failed; curl 92 HTTP/2 stream 0 was not closed cleanly: CANCEL (err 8)
+        send-pack: unexpected disconnect while reading sideband packet
+        fatal: the remote end hung up unexpectedly
+        Everything up-to-date
+
+This happens if the Personal Access Token authentication is being used (when PAT is used git uses https protocol using curl as a library).
+
+First suggestion: use :ref:`SSH deploy keys <setup_ssh_deploy_keys>`. The reason is that when using ssh the error messages might give better information.
+
+Two possible causes of the problem:
+
+- there are big files (bigger than 100 MB?) and git-lfs is not in use. Use the action version 1.6.0 or newer to have git-lfs support and make sure that these files are stored in git-lfs. This is a limitation on GitHub.
+- if the action is executed on a GitHub workflow on premises: make sure that can connect to https://github.com or the github-server specified in your options.
+
+Thanks Travis for submitting this error and following the debugging steps.
+
 -----------------------------------
 Error: remote: Repository not found
 -----------------------------------

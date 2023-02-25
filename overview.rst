@@ -21,8 +21,8 @@ Features
 - Support for github.com server and also GitHub for Enterprise (via configuration :ref:`github-server` <github-server-configuration>.)
 - Specify in the configuration the source directory, destination directory and repository
 - Change the commit message
-- Documentation includes examples of how to filter files or directories
-- Documentation includes an example of how to use this GitHub Action to publish Sphinx documentation
+- Extensive documentation including examples of :ref:`copy only some files <copy_only_some_files>` or :ref:`how to use it with Sphinx <sphinx_example>`
+- Since version 1.6.0: supports git-lfs
 
 .. _push-to-another-repository-deploy-keys-example: https://github.com/cpina/push-to-another-repository-deploy-keys-example
 .. _ci.yml (ssh keys): https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/.github/workflows/ci.yml#L21
