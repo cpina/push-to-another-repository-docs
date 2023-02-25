@@ -1,4 +1,4 @@
-.. _faq::
+.. _faq:
 
 ===
 FAQ
@@ -9,6 +9,8 @@ Can github-action-push-to-another-repository be used to publish Sphinx documenta
 -------------------------------------------------------------------------------------------------------
 
 Yes, see the `example`_.
+
+.. _copy_only_some_files:
 
 -----------------------------------------------------------------------------------
 How can I copy only some files / only some directories / exclude some files / etc.?
