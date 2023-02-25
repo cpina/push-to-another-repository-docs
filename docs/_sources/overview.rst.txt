@@ -22,7 +22,7 @@ Features
 - Specify in the configuration the source directory, destination directory and repository
 - Change the commit message
 - Extensive documentation including examples of :ref:`copy only some files <copy_only_some_files>` or :ref:`how to use it with Sphinx <sphinx_example>`
-- Since version 1.6.0: supports git-lfs
+- Since version 1.6: supports git-lfs
 
 .. _push-to-another-repository-deploy-keys-example: https://github.com/cpina/push-to-another-repository-deploy-keys-example
 .. _ci.yml (ssh keys): https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/.github/workflows/ci.yml#L21
