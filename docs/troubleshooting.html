@@ -56,6 +56,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#error-url-using-bad-illegal-format-or-missing-url">Error: URL using bad/illegal format or missing URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-rpc-failed-curl-92-http-2-stream-0-was-not-closed-cleanly-cancel-err-8">Error: RPC failed; curl 92 HTTP/2 stream 0 was not closed cleanly: CANCEL (err 8)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#error-remote-repository-not-found">Error: remote: Repository not found</a></li>
 </ul>
 </li>
@@ -154,6 +155,25 @@
 <p>Secondly, if GitHub created a token with <cite>#</cite> or a space inside, I suggest creating a new one.</p>
 <p>The problem, for those that are curious, is that the Personal Access Token is used in the git URLs and the URLs don’t support <cite>#</cite>. The error <code class="docutils literal notranslate"><span class="pre">URL</span> <span class="pre">using</span> <span class="pre">bad/illegal</span> <span class="pre">format</span></code> comes from the curl library used by git.</p>
 <p>More information: <a class="reference external" href="https://github.com/cpina/github-action-push-to-another-repository/issues/70">https://github.com/cpina/github-action-push-to-another-repository/issues/70</a></p>
+</section>
+<section id="error-rpc-failed-curl-92-http-2-stream-0-was-not-closed-cleanly-cancel-err-8">
+<h2>Error: RPC failed; curl 92 HTTP/2 stream 0 was not closed cleanly: CANCEL (err 8)<a class="headerlink" href="#error-rpc-failed-curl-92-http-2-stream-0-was-not-closed-cleanly-cancel-err-8" title="Permalink to this heading"></a></h2>
+<p>Full error as seen in the output of the action:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Pushing</span> <span class="n">git</span> <span class="n">commit</span>
+    <span class="n">error</span><span class="p">:</span> <span class="n">RPC</span> <span class="n">failed</span><span class="p">;</span> <span class="n">curl</span> <span class="mi">92</span> <span class="n">HTTP</span><span class="o">/</span><span class="mi">2</span> <span class="n">stream</span> <span class="mi">0</span> <span class="n">was</span> <span class="ow">not</span> <span class="n">closed</span> <span class="n">cleanly</span><span class="p">:</span> <span class="n">CANCEL</span> <span class="p">(</span><span class="n">err</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="n">send</span><span class="o">-</span><span class="n">pack</span><span class="p">:</span> <span class="n">unexpected</span> <span class="n">disconnect</span> <span class="k">while</span> <span class="n">reading</span> <span class="n">sideband</span> <span class="n">packet</span>
+    <span class="n">fatal</span><span class="p">:</span> <span class="n">the</span> <span class="n">remote</span> <span class="n">end</span> <span class="n">hung</span> <span class="n">up</span> <span class="n">unexpectedly</span>
+    <span class="n">Everything</span> <span class="n">up</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">date</span>
+</pre></div>
+</div>
+<p>This happens if the Personal Access Token authentication is being used (when PAT is used git uses https protocol using curl as a library).</p>
+<p>First suggestion: use <a class="reference internal" href="setup-using-ssh-deploy-keys.html#setup-ssh-deploy-keys"><span class="std std-ref">SSH deploy keys</span></a>. The reason is that when using ssh the error messages might give better information.</p>
+<p>Two possible causes of the problem:</p>
+<ul class="simple">
+<li><p>there are big files (bigger than 100 MB?) and git-lfs is not in use. Use the action version 1.6.0 or newer to have git-lfs support and make sure that these files are stored in git-lfs. This is a limitation on GitHub.</p></li>
+<li><p>if the action is executed on a GitHub workflow on premises: make sure that can connect to <a class="reference external" href="https://github.com">https://github.com</a> or the github-server specified in your options.</p></li>
+</ul>
+<p>Thanks Travis for submitting this error and following the debugging steps.</p>
 </section>
 <section id="error-remote-repository-not-found">
 <h2>Error: remote: Repository not found<a class="headerlink" href="#error-remote-repository-not-found" title="Permalink to this heading"></a></h2>

@@ -81,13 +81,13 @@
            <div itemprop="articleBody">
              
   <section id="faq">
-<h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading"></a></h1>
 <section id="can-github-action-push-to-another-repository-be-used-to-publish-sphinx-documentation-into-github-pages">
 <h2>Can github-action-push-to-another-repository be used to publish Sphinx documentation into GitHub pages?<a class="headerlink" href="#can-github-action-push-to-another-repository-be-used-to-publish-sphinx-documentation-into-github-pages" title="Permalink to this heading"></a></h2>
 <p>Yes, see the <a class="reference external" href="https://cpina.github.io/push-to-another-repository-docs/sphinx-example.html">example</a>.</p>
 </section>
 <section id="how-can-i-copy-only-some-files-only-some-directories-exclude-some-files-etc">
-<h2>How can I copy only some files / only some directories / exclude some files / etc.?<a class="headerlink" href="#how-can-i-copy-only-some-files-only-some-directories-exclude-some-files-etc" title="Permalink to this heading"></a></h2>
+<span id="copy-only-some-files"></span><h2>How can I copy only some files / only some directories / exclude some files / etc.?<a class="headerlink" href="#how-can-i-copy-only-some-files-only-some-directories-exclude-some-files-etc" title="Permalink to this heading"></a></h2>
 <p>If you need to filter files or directories (exclude files, include only some, etc.) use a step before the Action to filter these into a temporary directory that will be pushed. This can be done with “rsync” or any tool that you feel comfortable with (this could be “rclone” or “find + exec + rm”, “find + exec + mv”, etc. depending on your needs).</p>
 <p>See a <a class="reference external" href="https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/.github/workflows/ci.yml#L21">working example</a> to exclude a generated file (<em>main.epub</em>).</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
