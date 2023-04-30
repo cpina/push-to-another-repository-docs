@@ -46,17 +46,17 @@ If it is not specified, the commit will not have the author's email in the commi
 
 The name that will be used for the commit to the destination-repository-name. If not specified, the ``destination-github-username`` will be used instead.
 
-----------------------------------------------
-``destination-repository-username`` [optional]
-----------------------------------------------
-
-The Username/Organization for the destination repository, if different from ``destination-github-username``. For the repository https://github.com/cpina/push-to-another-repository-output this variable would be ``cpina`` .
-
 ----------------------------
 ``target-branch`` [optional]
 ----------------------------
 
 The branch name for the destination repository. It defaults to ``main`` .
+
+----------------------------------------------
+``destination-repository-username`` [optional]
+----------------------------------------------
+
+The Username/Organization for the destination repository, if different from ``destination-github-username``. For the repository https://github.com/cpina/push-to-another-repository-output this variable would be ``cpina`` .
 
 -----------------------------
 ``commit-message`` [optional]
@@ -81,3 +81,9 @@ The directory to wipe and replace in the target repository. Defaults to wiping t
 ----------------------------
 
 Defaults to github.com. Needs to be different if using GitHub for Enterprise.
+
+---------------------------------------------
+``create-target-branch-if-needed`` [optional]
+---------------------------------------------
+
+Boolean (``true``/``false``). Defaults to ``false``. If it's ``true``: if the destination branch does not exist it is created.

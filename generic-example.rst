@@ -44,6 +44,16 @@ Note that only one of the lines, ``SSH_DEPLOY_KEY`` or ``API_TOKEN_GITHUB``, are
 
 See the file `ci.yml`_ from the `origin repository`_ to push to the `destination repository`_.
 
+Besides the variables used in the example (``source-destination``, ``destination-github-username``, ``destination-repository-name``, ``user-email`` and ``target-branch``) there are other available variables:
+
+#. ``destination-repository-username``: defaults to same as origin
+#. ``commit-message``: defaults to ``Update from ORIGIN_COMMIT``
+#. ``target-directory``: defaults to "/" in the destination repository
+#. ``github-server``: defaults to ``github.com``
+#. ``create-target-branch-if-needed``: defaults to ``false``
+
+See the variables's documentation in :ref:`configuration<configuration>`.
+
 .. _ci.yml: https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/.github/workflows/ci.yml
 .. _origin repository: https://github.com/cpina/push-to-another-repository-deploy-keys-example
 .. _destination repository: https://github.com/cpina/push-to-another-repository-output
