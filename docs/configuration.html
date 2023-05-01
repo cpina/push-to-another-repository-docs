@@ -49,11 +49,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#destination-repository-name"><code class="docutils literal notranslate"><span class="pre">destination-repository-name</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#user-email-optional"><code class="docutils literal notranslate"><span class="pre">user-email</span></code> [optional]</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#user-name-optional"><code class="docutils literal notranslate"><span class="pre">user-name</span></code> [optional]</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#destination-repository-username-optional"><code class="docutils literal notranslate"><span class="pre">destination-repository-username</span></code> [optional]</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#target-branch-optional"><code class="docutils literal notranslate"><span class="pre">target-branch</span></code> [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#destination-repository-username-optional"><code class="docutils literal notranslate"><span class="pre">destination-repository-username</span></code> [optional]</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#commit-message-optional"><code class="docutils literal notranslate"><span class="pre">commit-message</span></code> [optional]</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#target-directory-optional"><code class="docutils literal notranslate"><span class="pre">target-directory</span></code> [optional]</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#github-server-optional"><code class="docutils literal notranslate"><span class="pre">github-server</span></code> [optional]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-target-branch-if-needed-optional"><code class="docutils literal notranslate"><span class="pre">create-target-branch-if-needed</span></code> [optional]</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
@@ -120,13 +121,13 @@
 <h2><code class="docutils literal notranslate"><span class="pre">user-name</span></code> [optional]<a class="headerlink" href="#user-name-optional" title="Permalink to this heading"></a></h2>
 <p>The name that will be used for the commit to the destination-repository-name. If not specified, the <code class="docutils literal notranslate"><span class="pre">destination-github-username</span></code> will be used instead.</p>
 </section>
-<section id="destination-repository-username-optional">
-<h2><code class="docutils literal notranslate"><span class="pre">destination-repository-username</span></code> [optional]<a class="headerlink" href="#destination-repository-username-optional" title="Permalink to this heading"></a></h2>
-<p>The Username/Organization for the destination repository, if different from <code class="docutils literal notranslate"><span class="pre">destination-github-username</span></code>. For the repository <a class="reference external" href="https://github.com/cpina/push-to-another-repository-output">https://github.com/cpina/push-to-another-repository-output</a> this variable would be <code class="docutils literal notranslate"><span class="pre">cpina</span></code> .</p>
-</section>
 <section id="target-branch-optional">
 <h2><code class="docutils literal notranslate"><span class="pre">target-branch</span></code> [optional]<a class="headerlink" href="#target-branch-optional" title="Permalink to this heading"></a></h2>
 <p>The branch name for the destination repository. It defaults to <code class="docutils literal notranslate"><span class="pre">main</span></code> .</p>
+</section>
+<section id="destination-repository-username-optional">
+<h2><code class="docutils literal notranslate"><span class="pre">destination-repository-username</span></code> [optional]<a class="headerlink" href="#destination-repository-username-optional" title="Permalink to this heading"></a></h2>
+<p>The Username/Organization for the destination repository, if different from <code class="docutils literal notranslate"><span class="pre">destination-github-username</span></code>. For the repository <a class="reference external" href="https://github.com/cpina/push-to-another-repository-output">https://github.com/cpina/push-to-another-repository-output</a> this variable would be <code class="docutils literal notranslate"><span class="pre">cpina</span></code> .</p>
 </section>
 <section id="commit-message-optional">
 <h2><code class="docutils literal notranslate"><span class="pre">commit-message</span></code> [optional]<a class="headerlink" href="#commit-message-optional" title="Permalink to this heading"></a></h2>
@@ -140,6 +141,10 @@
 <section id="github-server-optional">
 <span id="github-server"></span><h2><code class="docutils literal notranslate"><span class="pre">github-server</span></code> [optional]<a class="headerlink" href="#github-server-optional" title="Permalink to this heading"></a></h2>
 <p>Defaults to github.com. Needs to be different if using GitHub for Enterprise.</p>
+</section>
+<section id="create-target-branch-if-needed-optional">
+<h2><code class="docutils literal notranslate"><span class="pre">create-target-branch-if-needed</span></code> [optional]<a class="headerlink" href="#create-target-branch-if-needed-optional" title="Permalink to this heading"></a></h2>
+<p>Boolean (<code class="docutils literal notranslate"><span class="pre">true</span></code>/<code class="docutils literal notranslate"><span class="pre">false</span></code>). Defaults to <code class="docutils literal notranslate"><span class="pre">false</span></code>. If it’s <code class="docutils literal notranslate"><span class="pre">true</span></code>: if the destination branch does not exist it is created.</p>
 </section>
 </section>
 

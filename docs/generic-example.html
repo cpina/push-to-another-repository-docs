@@ -112,6 +112,15 @@
 </span></pre></div>
 </div>
 <p>See the file <a class="reference external" href="https://github.com/cpina/push-to-another-repository-deploy-keys-example/blob/main/.github/workflows/ci.yml">ci.yml</a> from the <a class="reference external" href="https://github.com/cpina/push-to-another-repository-deploy-keys-example">origin repository</a> to push to the <a class="reference external" href="https://github.com/cpina/push-to-another-repository-output">destination repository</a>.</p>
+<p>Besides the variables used in the example (<code class="docutils literal notranslate"><span class="pre">source-destination</span></code>, <code class="docutils literal notranslate"><span class="pre">destination-github-username</span></code>, <code class="docutils literal notranslate"><span class="pre">destination-repository-name</span></code>, <code class="docutils literal notranslate"><span class="pre">user-email</span></code> and <code class="docutils literal notranslate"><span class="pre">target-branch</span></code>) there are other available variables:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">destination-repository-username</span></code>: defaults to same as origin</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">commit-message</span></code>: defaults to <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">from</span> <span class="pre">ORIGIN_COMMIT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target-directory</span></code>: defaults to “/” in the destination repository</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">github-server</span></code>: defaults to <code class="docutils literal notranslate"><span class="pre">github.com</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create-target-branch-if-needed</span></code>: defaults to <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+</ol>
+<p>See the variables’s documentation in <a class="reference internal" href="configuration.html#configuration"><span class="std std-ref">configuration</span></a>.</p>
 </section>
 
 
