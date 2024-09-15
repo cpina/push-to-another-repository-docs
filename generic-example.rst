@@ -1,7 +1,7 @@
 .. _generic_example:
 
 .. warning::
-  TL;DR: this repository is not maintained for any new development. I plan to
+  **TL;DR:** this repository is not maintained for any new development. I plan to
   fix issues if they arise due to changes on GitHub, to minimise disruption of
   existing usage.
 
