@@ -75,8 +75,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="example-setup">
-<span id="generic-example"></span><h1>Example setup<a class="headerlink" href="#example-setup" title="Permalink to this heading"></a></h1>
+  <div class="admonition warning" id="generic-example">
+<p class="admonition-title">Warning</p>
+<p>TL;DR: this repository is not maintained for any new development. I plan to
+fix issues if they arise due to changes on GitHub, to minimise disruption of
+existing usage.</p>
+<p>My circumstances changed since I started the GitHub Action in 2020. I am not
+able to add functionality to it or fix issues.</p>
+<p>The action is 175 lines of shell script. Feel free to fork it and modify it
+for your own use case.</p>
+<p>If you create a fork that might replace this one, I will add a note in the
+documentation and the README.md. Please, open an issue and I will do it.</p>
+</div>
+<section id="example-setup">
+<h1>Example setup<a class="headerlink" href="#example-setup" title="Permalink to this heading"></a></h1>
 <p>This example shows both setup methods. This is part of a <em>GitHub workflow</em> Action, for example, in your repository: <code class="docutils literal notranslate"><span class="pre">.github/workflow/ci.yml</span></code>.</p>
 <p>Note that only one of the lines, <code class="docutils literal notranslate"><span class="pre">SSH_DEPLOY_KEY</span></code> or <code class="docutils literal notranslate"><span class="pre">API_TOKEN_GITHUB</span></code>, are needed <a class="reference internal" href="setup.html#setup"><span class="std std-ref">according to the chosen setup</span></a> that is being used.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI</span><span class="w"></span>
